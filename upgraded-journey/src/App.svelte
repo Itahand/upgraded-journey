@@ -5,7 +5,7 @@
 <main>
 	<header class="header">
 		<nav class="navbar">
-			<ul>
+			<ul class="list">
 				<li>
 					<img src="https://i.postimg.cc/Y0gQ47Lt/profile-pic.jpg" alt="profile" class="profile">
 				</li>
@@ -18,7 +18,14 @@
 			</ul>
 		</nav>
 	</header>
-	<h1>Hello {names}! </h1>
+	<section>
+		<div>
+			<h1>{names}</h1>
+		</div>
+	</section>
+	<section>
+		HELLO WORLD
+	</section>
 </main>
 
 <style>
@@ -33,7 +40,9 @@
 		text-transform: uppercase;
 		font-weight: 100;
 	}
-
+	section {
+		height: 100vh;
+	}
 	.header {
 		position: fixed;
 		background: palevioletred;
@@ -43,10 +52,15 @@
 		flex-direction: column;
 		justify-content: center;
 	}
-	.header ul {
+	.list {
 		padding: 1rem;
 		list-style: none;
 	}
+	.list li {
+		margin: 1rem 0;
+		color: white;
+	}
+
 	.navbar {
 		position: relative;
 	}
@@ -54,6 +68,7 @@
 		height: 150px;
 		width: 150px;
 		border-radius: 50%;
+		border: 2px solid white;
 	}
 
 	@media (min-width: 640px) {
