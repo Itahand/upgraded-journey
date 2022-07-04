@@ -1,5 +1,5 @@
 <script>
-	export let names = 'Itahand Naizir';
+	export let spanish = true;
 </script>
 
 <main>
@@ -20,7 +20,9 @@
 	</header>
 	<section>
 		<div>
-			<h1>{names}</h1>
+			<h1>Itahand Naizir</h1>
+			<p>4746 E 8th Street, Tulsa OK. - +1 (305) 713-8713 - Itahand.naizir@gmail.com</p>
+			<p>I am experienced in leveraging agile frameworks, well-versed in the landscape of Blockchain technology and providing Web3 services.<br> My passion for blockchain comes from creating applications that deliver transparency, security and increased efficiency in finance.</p>
 		</div>
 	</section>
 	<section>
@@ -39,18 +41,16 @@
 		color: #ff3e00;
 		text-transform: uppercase;
 		font-weight: 100;
+		font-size: 36px;
 	}
 	section {
 		height: 100vh;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
 	}
 	.header {
-		position: fixed;
-		background: palevioletred;
-		height: 100%;
-		width: 250px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		display: none;
 	}
 	.list {
 		padding: 1rem;
@@ -63,6 +63,7 @@
 
 	.navbar {
 		position: relative;
+		z-index: -10;
 	}
 	.profile {
 		height: 150px;
@@ -75,5 +76,15 @@
 		main {
 			max-width: none;
 		}
+		section {
+		padding-left: 250px;
+		}
+		.header {
+		display: block;
+		position: fixed;
+		background: palevioletred;
+		height: 100%;
+		width: 250px;
+	}
 	}
 </style>
