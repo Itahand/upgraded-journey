@@ -19,10 +19,11 @@
 		</nav>
 	</header>
 	<section>
-		<div>
+		<div class="intro">
 			<h1>Itahand Naizir</h1>
-			<p>4746 E 8th Street, Tulsa OK. - +1 (305) 713-8713 - Itahand.naizir@gmail.com</p>
-			<p>I am experienced in leveraging agile frameworks, well-versed in the landscape of Blockchain technology and providing Web3 services.<br> My passion for blockchain comes from creating applications that deliver transparency, security and increased efficiency in finance.</p>
+			<img src="https://i.postimg.cc/Y0gQ47Lt/profile-pic.jpg" alt="profile" class="profile2">
+			<p>Tulsa, OK, United States - +1 (305) 713-8713 - Itahand.naizir@gmail.com</p>
+			<p>I am experienced in leveraging agile frameworks, well-versed in the landscape of Blockchain technology and developing and integrating Front-end with Web3 services.<br> My passion for blockchain comes from creating applications that deliver transparency, security and increased efficiency in finance.</p>
 		</div>
 	</section>
 	<section>
@@ -34,8 +35,7 @@
 	main {
 		text-align: center;
 		padding: 0;
-		max-width: 240px;
-		margin: 0 auto;
+		line-height: 1.3rem;
 	}
 	h1 {
 		color: #ff3e00;
@@ -48,6 +48,8 @@
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
+		width: 85vw;
+		margin: auto;
 	}
 	.header {
 		display: none;
@@ -60,16 +62,15 @@
 		margin: 1rem 0;
 		color: white;
 	}
-
 	.navbar {
 		position: relative;
 		z-index: -10;
 	}
-	.profile {
+	.profile, .profile2 {
 		height: 150px;
 		width: 150px;
 		border-radius: 50%;
-		border: 2px solid white;
+		border: 3px solid wheat;
 	}
 
 	@media (min-width: 640px) {
@@ -77,14 +78,17 @@
 			max-width: none;
 		}
 		section {
-		padding-left: 250px;
+			padding-left: 250px;
 		}
 		.header {
-		display: block;
-		position: fixed;
-		background: palevioletred;
-		height: 100%;
-		width: 250px;
-	}
+			display: block;
+			position: fixed;
+			background: palevioletred;
+			height: 100%;
+			width: 250px;
+		}
+		.profile2 {
+			display: none;
+		}
 	}
 </style>
