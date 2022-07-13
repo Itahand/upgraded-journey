@@ -20,9 +20,9 @@
 	</header>
 	<section>
 		<div class="intro">
-			<h1>Itahand Naizir</h1>
+			<div class="name"><span class="altH2">Itahand</span> <span class="altH1"> Naizir</span></div>
 			<img src="https://i.postimg.cc/Y0gQ47Lt/profile-pic.jpg" alt="profile" class="profile2">
-			<p>Tulsa, OK, United States - +1 (305) 713-8713 - Itahand.naizir@gmail.com</p>
+			<p class="info">Tulsa, OK, United States - +1 (305) 713-8713 - Itahand.naizir<span class="alts">@gmail.com</span></p>
 			<p>I am experienced in leveraging agile frameworks, well-versed in the landscape of Blockchain technology and developing and integrating Front-end with Web3 services.<br> My passion for blockchain comes from creating applications that deliver transparency, security and increased efficiency in finance.</p>
 		</div>
 	</section>
@@ -37,11 +37,20 @@
 		padding: 0;
 		line-height: 1.3rem;
 	}
-	h1 {
+	.alts {
+		color: #ff3e00;
+	}
+	.altH1 {
 		color: #ff3e00;
 		text-transform: uppercase;
 		font-weight: 100;
-		font-size: 36px;
+		font-size: 46px;
+	}
+	.altH2 {
+		color: black;
+		text-transform: uppercase;
+		font-weight: 100;
+		font-size: 46px;
 	}
 	section {
 		height: 100vh;
@@ -72,6 +81,9 @@
 		border-radius: 50%;
 		border: 3px solid wheat;
 	}
+	.info {
+		font-size: 20px;
+	}
 
 	@media (min-width: 640px) {
 		main {
@@ -89,6 +101,20 @@
 		}
 		.profile2 {
 			display: none;
+		}
+		.intro {
+			text-align: left;
+			padding-left: 1rem;
+		}
+		.altH1, .altH2 {
+			font-size: 100px;
+		}
+		.altH1 {
+			border-bottom-color: black;
+			border-bottom-style: inset;
+		}
+		.info {
+			margin-top: 5rem;
 		}
 	}
 </style>
