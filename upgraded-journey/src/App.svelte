@@ -10,11 +10,8 @@
 					<img src="https://i.postimg.cc/Y0gQ47Lt/profile-pic.jpg" alt="profile" class="profile">
 				</li>
 				<li>About</li>
-				<li>Experience</li>
-				<li>Education</li>
-				<li>Skills</li>
+				<li>Services</li>
 				<li>Portfolio</li>
-				<li>Interests</li>
 			</ul>
 		</nav>
 	</header>
@@ -23,11 +20,40 @@
 			<div class="name"><span class="altH2">Itahand</span> <span class="altH1"> Naizir</span></div>
 			<img src="https://i.postimg.cc/Y0gQ47Lt/profile-pic.jpg" alt="profile" class="profile2">
 			<p class="info">Tulsa, OK, United States - +1 (305) 713-8713 - Itahand.naizir<span class="alts">@gmail.com</span></p>
-			<p>I am experienced in leveraging agile frameworks, well-versed in the landscape of Blockchain technology and developing and integrating Front-end with Web3 services.<br> My passion for blockchain comes from creating applications that deliver transparency, security and increased efficiency in finance.</p>
+			<p>I am experienced in leveraging agile frameworks, with a passion of Blockchain. I specialise in standards compliant smart Contracts like NFT and DeFi and Web Developement with a focus on usability. <br> My passion for blockchain comes from creating applications that deliver transparency, security and increased efficiency in finance.</p>
 		</div>
 	</section>
 	<section>
-		HELLO WORLD
+		<div class="services">
+			<h3><span class="altH2">Services</span></h3>
+		</div>
+		<div class="services">
+			<h1><span class="altH1">What I can do</span></h1>
+		</div>
+		<div class="services2">
+			<div>
+					<h2>BLOCKCHAIN</h2>
+					<div>
+						Developing Smart Contracts, decentralized exchanges, token deployment and NFTs functionalities.
+					</div>
+			</div>
+			<div>
+					<h2>WEB DEVELOPMENT</h2>
+					<div>
+								I am proficient with Svelte, React, Angular, Node.js and databases.
+					</div>
+			</div>
+		</div>
+	</section>
+	<section>
+		<div class="portfolio">
+			<span class="altH1">Portfolio</span>
+			<div class="portGrid">
+				<div class="card">
+					<a href="https://late-field-5240.on.fleek.co/" target="none">Cryptocurrency Exchange</a>
+				</div>
+			</div>
+		</div>
 	</section>
 </main>
 
@@ -53,7 +79,7 @@
 		font-size: 46px;
 	}
 	section {
-		height: 100vh;
+		height: 80vh;
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
@@ -84,6 +110,24 @@
 	.info {
 		font-size: 20px;
 	}
+	.services2 {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 100%;
+	}
+	.services2 div {
+		width: 100%;
+	}
+	.services2 div div {
+		width: 50%;
+		margin: auto;
+	}
+	.portGrid {
+		margin-top: 5rem;
+	}
+
+
 
 	@media (min-width: 640px) {
 		main {
@@ -115,6 +159,23 @@
 		}
 		.info {
 			margin-top: 5rem;
+		}
+		.services {
+			margin-bottom: 2.5rem;
+		}
+		.services .altH1 {
+			font-size: 4rem;
+		}
+		.services .altH2 {
+			font-size: 2.5rem;
+			border-bottom: none;
+			margin-bottom: 10rem;
+		}
+		.services2 {
+			flex-direction: row;
+		}
+		.portfolio .altH1 {
+			border-bottom: none;
 		}
 	}
 </style>
