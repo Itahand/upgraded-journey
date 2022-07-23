@@ -20,7 +20,7 @@
 			<div class="name"><span class="altH2">Itahand</span> <span class="altH1"> Naizir</span></div>
 			<img src="https://i.postimg.cc/Y0gQ47Lt/profile-pic.jpg" alt="profile" class="profile2">
 			<p class="info">Tulsa, OK, United States - +1 (305) 713-8713 - Itahand.naizir<span class="alts">@gmail.com</span></p>
-			<p>I am experienced in leveraging agile frameworks, with a passion of Blockchain. I specialise in standards compliant smart Contracts like NFT and DeFi and Web Developement with a focus on usability. <br> My passion for blockchain comes from creating applications that deliver transparency, security and increased efficiency in finance.</p>
+			<p>I am experienced in leveraging agile frameworks, with a passion of Blockchain. I specialize in standards compliant smart Contracts like NFT and DeFi and Web Developement with a focus on usability. <br> My passion for blockchain comes from creating applications that deliver transparency, security and increased efficiency in finance.</p>
 		</div>
 	</section>
 	<section>
