@@ -50,7 +50,7 @@
 			<span class="altH1">Portfolio</span>
 			<div class="portGrid">
 				<div class="card">
-					<a href="https://late-field-5240.on.fleek.co/" target="none">Cryptocurrency Exchange</a>
+					<a href="https://late-field-5240.on.fleek.co/" target="none" class="exchange">Cryptocurrency Exchange</a>
 				</div>
 			</div>
 		</div>
@@ -125,6 +125,10 @@
 	}
 	.portGrid {
 		margin-top: 5rem;
+	}
+	.exchange {
+		border: 1.5px solid black;
+		padding: 1rem;
 	}
 
 
