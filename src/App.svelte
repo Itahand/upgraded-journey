@@ -101,7 +101,7 @@
 			<span class="altH1">Portfolio</span>
 			<div class="portGrid">
 				<div class="card">
-					<a href="https://late-field-5240.on.fleek.co/" target="none" >
+					<a href="itahandexchange.on.fleek.co" target="none" >
 					<img src="https://i.postimg.cc/Y0WLJ2kZ/Screen-Shot-2022-07-23-at-3-58-21-PM.png" alt="screenshot" class="exchange">
 					<br>
 						Cryptocurrency Exchange
@@ -116,7 +116,7 @@
 			<span class="altH1">Portafolio</span>
 			<div class="portGrid">
 				<div class="card">
-					<a href="https://late-field-5240.on.fleek.co/" target="none" >
+					<a href="itahandexchange.on.fleek.co" target="none" >
 					<img src="https://i.postimg.cc/Y0WLJ2kZ/Screen-Shot-2022-07-23-at-3-58-21-PM.png" alt="screenshot" class="exchange">
 					<br>
 						Casa de cambio de Criptomonedas.
