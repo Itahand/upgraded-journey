@@ -1,28 +1,53 @@
 <script>
-	export let spanish = true;
+	let lang = { spanish: false };
+	function toggle() {
+		lang.spanish = !lang.spanish;
+	}
 </script>
 
 <main>
+
 	<header class="header">
 		<nav class="navbar">
 			<ul class="list">
 				<li>
 					<img src="https://i.postimg.cc/Y0gQ47Lt/profile-pic.jpg" alt="profile" class="profile">
 				</li>
+				{#if !lang.spanish}
 				<li>About</li>
 				<li>Services</li>
 				<li>Portfolio</li>
+				<button on:click={toggle}>Español</button>
+				{:else}
+				<li>Introdución</li>
+				<li>Servicios</li>
+				<li>Portafolio</li>
+				<button on:click={toggle}>English</button>
+				{/if}
 			</ul>
 		</nav>
 	</header>
+
 	<section>
+
 		<div class="intro">
 			<div class="name"><span class="altH2">Itahand</span> <span class="altH1"> Naizir</span></div>
 			<img src="https://i.postimg.cc/Y0gQ47Lt/profile-pic.jpg" alt="profile" class="profile2">
 			<p class="info">Tulsa, OK, United States - +1 (305) 713-8713 - Itahand.naizir<span class="alts">@gmail.com</span></p>
-			<p>I am experienced in leveraging agile frameworks, with a passion of Blockchain. I specialize in standards compliant smart Contracts like NFT and DeFi and Web Developement with a focus on usability. <br> My passion for blockchain comes from creating applications that deliver transparency, security and increased efficiency in finance.</p>
+
+			{#if !lang.spanish}
+			<p>
+				I am experienced in leveraging agile frameworks, with a passion of Blockchain. I specialize in standards compliant smart Contracts like NFT and DeFi and Web Developement with a focus on usability. My passion for blockchain comes from creating applications that deliver transparency, security and increased efficiency in finance.
+			</p>
+			{:else}
+			<p>
+				Tengo experiencia trabajando en ambientes ágiles y poseo una pasión innata por la tecnología blockchain. Me especializo en smart contracts que cumplen los standards y poseen un valor de utilidad, especialmente en el espacio DeFi. Mi pasion por esta tecnología nace de crear aplicaciones que aseguran transparencia, seguridad y mayor eficiencia en finanzas.
+			</p>
+			{/if}
 		</div>
+
 	</section>
+{#if !lang.spanish}
 	<section>
 		<div class="services">
 			<h3><span class="altH2">Services</span></h3>
@@ -34,27 +59,73 @@
 			<div>
 					<h2>BLOCKCHAIN</h2>
 					<div>
-						Developing Smart Contracts, decentralized exchanges, token deployment and NFTs functionalities.
+						I design, develop and integrate Smart Contracts, token deployment and NFTs functionalities with decentralized or commercial applications that seek to work under a safe environment.
 					</div>
 			</div>
 			<div>
 					<h2>WEB DEVELOPMENT</h2>
 					<div>
-								I am proficient with Svelte, React, Angular, Node.js and databases.
+								I am a fullstack developer proficient with Svelte, React, Angular, Node.js and databases.
 					</div>
 			</div>
 		</div>
 	</section>
+	{:else}
+	<section>
+		<div class="services">
+			<h3><span class="altH2">Servicios</span></h3>
+		</div>
+		<div class="services">
+			<h1><span class="altH1">Lo que puedo hacer</span></h1>
+		</div>
+		<div class="services2">
+			<div>
+					<h2>BLOCKCHAIN</h2>
+					<div>
+						Diseño e integración de aplicaciones blockchain personalizadas en sistemas empresariales existentes para que las empresas aprovechen un entorno seguro para múltiples transacciones comerciales.
+					</div>
+			</div>
+			<div>
+					<h2>WEB DEVELOPMENT</h2>
+					<div>
+								Soy un dessarrollador fullstack; me manejo con proeficiencia usando Svelte, React, Angular, Node.js y bases de datos.
+					</div>
+			</div>
+		</div>
+	</section>
+	{/if}
+
+	{#if !lang.spanish}
 	<section>
 		<div class="portfolio">
 			<span class="altH1">Portfolio</span>
 			<div class="portGrid">
 				<div class="card">
-					<a href="https://late-field-5240.on.fleek.co/" target="none" class="exchange">Cryptocurrency Exchange</a>
+					<a href="https://late-field-5240.on.fleek.co/" target="none" >
+					<img src="https://i.postimg.cc/Y0WLJ2kZ/Screen-Shot-2022-07-23-at-3-58-21-PM.png" alt="screenshot" class="exchange">
+					<br>
+						Cryptocurrency Exchange
+					</a>
 				</div>
 			</div>
 		</div>
 	</section>
+	{:else}
+	<section>
+		<div class="portfolio">
+			<span class="altH1">Portafolio</span>
+			<div class="portGrid">
+				<div class="card">
+					<a href="https://late-field-5240.on.fleek.co/" target="none" >
+					<img src="https://i.postimg.cc/Y0WLJ2kZ/Screen-Shot-2022-07-23-at-3-58-21-PM.png" alt="screenshot" class="exchange">
+					<br>
+						Casa de cambio de Criptomonedas.
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	{/if}
 </main>
 
 <style>
@@ -97,6 +168,16 @@
 		margin: 1rem 0;
 		color: white;
 	}
+	.list button {
+		cursor: pointer;
+		background: transparent;
+		color: white;
+		border: 1.5px solid wheat;
+		transition: ease-in-out 300ms;
+	}
+	.list button:hover {
+		border: 2px solid black;
+	}
 	.navbar {
 		position: relative;
 		z-index: -10;
@@ -126,9 +207,16 @@
 	.portGrid {
 		margin-top: 5rem;
 	}
+	.card {
+		display: flex;
+		justify-content: center;
+	}
 	.exchange {
-		border: 1.5px solid black;
+		width: 350px;
 		padding: 1rem;
+		margin: 1rem auto;
+		border: 1.5px dotted black;
+		cursor: pointer;
 	}
 
 
