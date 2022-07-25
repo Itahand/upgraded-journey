@@ -28,8 +28,16 @@
 		</nav>
 	</header>
 
+	{#if !lang.spanish}
+	<button on:click={toggle} class="idioma">
+		Español
+	</button>
+	{:else}
+	<button on:click={toggle} class="idioma">
+		English
+	</button>
+	{/if}
 	<section>
-
 		<div class="intro">
 			<div class="name"><span class="altH2">Itahand</span> <span class="altH1"> Naizir</span></div>
 			<img src="https://i.postimg.cc/Y0gQ47Lt/profile-pic.jpg" alt="profile" class="profile2">
@@ -201,7 +209,7 @@
 		width: 100%;
 	}
 	.services2 div div {
-		width: 50%;
+		width: 75%;
 		margin: auto;
 	}
 	.portGrid {
@@ -218,6 +226,13 @@
 		border: 1.5px dotted black;
 		cursor: pointer;
 	}
+	.idioma {
+		background: transparent;
+		transition: ease-in-out 200ms;
+		border-radius: 15%;
+		border: 2px solid wheat;
+	}
+
 
 
 
@@ -228,15 +243,15 @@
 		section {
 			padding-left: 250px;
 		}
+		.profile2, .idioma {
+			display: none;
+		}
 		.header {
 			display: block;
 			position: fixed;
 			background: palevioletred;
 			height: 100%;
 			width: 250px;
-		}
-		.profile2 {
-			display: none;
 		}
 		.intro {
 			text-align: left;
