@@ -1,4 +1,18 @@
 <script>
+
+	const scrollToElement = (selector) => {
+	const elemento = document.querySelector(selector);
+	if (!elemento) return;
+
+	let posicion = elemento.getBoundingClientRect().top;
+	let offset = posicion + window.pageYOffset;
+
+	window.scrollTo({
+		top: offset,
+		behavior: 'smooth',
+	});
+	};
+
 	let lang = { spanish: false };
 	function toggle() {
 		lang.spanish = !lang.spanish;
@@ -14,14 +28,26 @@
 					<img src="https://i.postimg.cc/Y0gQ47Lt/profile-pic.jpg" alt="profile" class="profile">
 				</li>
 				{#if !lang.spanish}
-				<li>About</li>
-				<li>Services</li>
-				<li>Portfolio</li>
+				<li>
+					<a href={'#'} on:click|preventDefault={() => scrollToElement('#about')}>About</a>
+				</li>
+				<li>
+					<a href={'#'} on:click|preventDefault={() => scrollToElement('#servicios')}>Services</a>
+				</li>
+				<li>
+					<a href={'#'} on:click|preventDefault={() => scrollToElement('#portafolio')}>Portfolio</a>
+				</li>
 				<button on:click={toggle}>Español</button>
 				{:else}
-				<li>Introdución</li>
-				<li>Servicios</li>
-				<li>Portafolio</li>
+				<li>
+					<a href={'#'} on:click|preventDefault={() => scrollToElement('#about')}>Introdución</a>
+				</li>
+				<li>
+					<a href={'#'} on:click|preventDefault={() => scrollToElement('#servicios')}>Servicios</a>
+				</li>
+				<li>
+					<a href={'#'} on:click|preventDefault={() => scrollToElement('#portafolio')}>Portafolio</a>
+				</li>
 				<button on:click={toggle}>English</button>
 				{/if}
 			</ul>
@@ -37,7 +63,7 @@
 		English
 	</button>
 	{/if}
-	<section>
+	<section id="about">
 		<div class="intro">
 			<div class="name"><span class="altH2">Itahand</span> <span class="altH1"> Naizir</span></div>
 			<img src="https://i.postimg.cc/Y0gQ47Lt/profile-pic.jpg" alt="profile" class="profile2">
@@ -56,7 +82,7 @@
 
 	</section>
 {#if !lang.spanish}
-	<section>
+	<section id="servicios">
 		<div class="services">
 			<h3><span class="altH2">Services</span></h3>
 		</div>
@@ -79,7 +105,7 @@
 		</div>
 	</section>
 	{:else}
-	<section>
+	<section id="servicios">
 		<div class="services">
 			<h3><span class="altH2">Servicios</span></h3>
 		</div>
@@ -104,7 +130,7 @@
 	{/if}
 
 	{#if !lang.spanish}
-	<section>
+	<section id="portafolio">
 		<div class="portfolio">
 			<span class="altH1">Portfolio</span>
 			<div class="portGrid">
@@ -119,7 +145,7 @@
 		</div>
 	</section>
 	{:else}
-	<section>
+	<section id="portafolio">
 		<div class="portfolio">
 			<span class="altH1">Portafolio</span>
 			<div class="portGrid">
@@ -174,6 +200,9 @@
 	}
 	.list li {
 		margin: 1rem 0;
+		color: white;
+	}
+	.list a {
 		color: white;
 	}
 	.list button {
