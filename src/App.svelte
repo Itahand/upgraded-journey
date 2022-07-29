@@ -45,7 +45,7 @@
 
 			{#if !lang.spanish}
 			<p class="introd">
-				I am experienced in leveraging agile frameworks, with a passion of Blockchain. I specialize in standards compliant smart Contracts like NFT and DeFi and Web Developement with a focus on usability. My passion for blockchain comes from creating applications that deliver transparency, security and increased efficiency in finance.
+				I am experienced in leveraging agile frameworks, with a passion of Blockchain. I specialize in standards compliant smart Contracts like NFT and DeFi and Web Development with a focus on usability. My passion for blockchain comes from creating applications that deliver transparency, security and increased efficiency in finance.
 			</p>
 			{:else}
 			<p class="introd">
