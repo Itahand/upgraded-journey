@@ -65,6 +65,17 @@
 				<button on:click={toggle}>
 					English
 				</button>
+				<div id="faucet">
+					<h3 style="color: wheat; border-bottom: 1px dotted white" >NOAH Faucet</h3>
+					<input type="checkbox" id="toggle" class="toggle__checkbox" />
+					<aside class="box">
+						<label for="toggle" class="toggle"><i class="icon"></i></label>
+						<div class="pasteAdd">
+							<h1 style="--index:1;" class="box__item">Pegue su cuenta</h1>
+							<input style="--index:3;" class="box__item" placeholder="Dirección Kovan (pronto)">
+						</div>
+					</aside>
+				</div>
 				{/if}
 			</ul>
 		</nav>
