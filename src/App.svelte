@@ -436,6 +436,9 @@
 		.services2 {
 			flex-direction: row;
 		}
+		#portafolio {
+			margin-top: 10rem;
+		}
 		.portGrid {
 			display: flex;
 			flex-direction: column;
