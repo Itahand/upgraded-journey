@@ -167,11 +167,12 @@
 			<div class="portGrid">
 				<div class="card">
 					<a href="https://charitytoken.bio/" target="none" >
+						<h2>Charity Token</h2>
 					<img src="https://i.postimg.cc/L584Ynfq/Screen-Shot-2022-07-31-at-12-42-32-PM.png" alt="screenshot" class="exchange">
-					<br>
-						Landing page for Charity Token, a charity project developed on Cardano.
-					</a>
+				</a>
+				<h3 class="portExp">I designed and coded this simple landing page for a charity project that was funding animal sanctuaries in Africa throught a project based on Cardano.</h3>
 				</div>
+
 				<div class="card">
 					<a href="https://itahandexchange.on.fleek.co/" target="none" >
 					<img src="https://i.postimg.cc/Y0WLJ2kZ/Screen-Shot-2022-07-23-at-3-58-21-PM.png" alt="screenshot" class="exchange">
@@ -191,11 +192,12 @@
 			<div class="portGrid">
 				<div class="card">
 					<a href="https://charitytoken.bio/" target="none" >
-					<img src="https://i.postimg.cc/L584Ynfq/Screen-Shot-2022-07-31-at-12-42-32-PM.png" alt="screenshot" class="exchange">
-					<br>
-						Landing page para un proyecto de caridad construido en Cardano.
+						<h2>Charity Token</h2>
+						<img src="https://i.postimg.cc/L584Ynfq/Screen-Shot-2022-07-31-at-12-42-32-PM.png" alt="screenshot" class="exchange">
 					</a>
+					<h3 class="portExp">Yo diseñé y desarrollé esta página de presentación para un proyecto de caridad cuya meta es financiar santuarios para animales en África a través de un proyecto desarrolado en Cardano</h3>
 				</div>
+
 				<div class="card">
 					<a href="https://itahandexchange.on.fleek.co/" target="none" >
 					<img src="https://i.postimg.cc/Y0WLJ2kZ/Screen-Shot-2022-07-23-at-3-58-21-PM.png" alt="screenshot" class="exchange">
@@ -305,6 +307,8 @@
 	.card {
 		display: flex;
 		justify-content: center;
+		flex-direction: column;
+		margin-top: 2rem;
 	}
 	.exchange {
 		width: 350px;
@@ -434,10 +438,14 @@
 		}
 		.portGrid {
 			display: flex;
+			flex-direction: column;
 			justify-content: space-around;
 		}
 		.portfolio .altH1 {
 			border-bottom: none;
+		}
+		.portExp {
+			padding: 1rem 10rem;
 		}
 		#faucet {
 			display: inline-block;
