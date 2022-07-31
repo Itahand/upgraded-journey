@@ -258,6 +258,9 @@
 	.info {
 		font-size: 20px;
 	}
+	.introd {
+		width: 100%;
+	}
 	.services2 {
 		display: flex;
 		flex-direction: column;
@@ -291,7 +294,71 @@
 		border-radius: 15%;
 		border: 2px solid wheat;
 	}
+	#faucet {
+			display: none;
+		}
+	input[type=checkbox]:checked + .box:after {
+			transform: translate(45%) scale3d(1, 8, 1);
+			width: 100%;
+		}
+	input[type=checkbox]:checked + .box .box__item {
+			transform: translateX(0px);
+		opacity: 1;
+		visibility: visible;
+		transition: all 0.5s ease-out;
+		transition-delay: calc(var(--index) * 0.1s);
+		transition-property: transform, opacity;
 
+	}
+	input[type=checkbox]:checked + .box .icon {
+		background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E %3Cpath d='M437.5 386.6L306.9 256l130.6-130.6c14.1-14.1 14.1-36.8 0-50.9-14.1-14.1-36.8-14.1-50.9 0L256 205.1 125.4 74.5c-14.1-14.1-36.8-14.1-50.9 0-14.1 14.1-14.1 36.8 0 50.9L205.1 256 74.5 386.6c-14.1 14.1-14.1 36.8 0 50.9 14.1 14.1 36.8 14.1 50.9 0L256 306.9l130.6 130.6c14.1 14.1 36.8 14.1 50.9 0 14-14.1 14-36.9 0-50.9z'/%3E %3C/svg%3E ");
+	}
+	.box {
+		margin-top: 1.5rem;
+		padding-top: 1rem;
+		position: relative;
+	}
+	.box:after {
+		content: "";
+		width: 40px;
+		height: 35px;
+		position: absolute;
+		right: 45%;
+		top: 50%;
+		transform-origin: 100% 50%;
+		transform: translateY(135%);
+		transition: transform 0.3s var(--easing);
+		z-index: -1;
+	}
+	.box__item {
+		visibility: hidden;
+		transform: translateX(20px);
+		opacity: 0;
+		transition: opacity 0.2s var(--easing-2) 0;
+	}
+	.toggle {
+		display: block;
+		position: absolute;
+		right: 40%;
+		top: 50%;
+		transform: translateY(-150%);
+	}
+	.toggle__checkbox {
+		display: none;
+	}
+	.icon {
+		cursor: pointer;
+		display: block;
+		width: 50px;
+		height: 50px;
+		background: no-repeat center/40%;
+		background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-clock'%3E %3Ccircle cx='12' cy='12' r='10'/%3E %3Cpath d='M12 6v6l4 2'/%3E %3C/svg%3E ");
+	}
+	*,
+	*:before,
+	*:after {
+		box-sizing: border-box;
+	}
 	@media (min-width: 640px) {
 		main {
 			max-width: none;
@@ -312,6 +379,9 @@
 		.intro {
 			text-align: left;
 			padding-left: 1rem;
+		}
+		.introd {
+			width: 75%;
 		}
 		.altH1, .altH2 {
 			font-size: 100px;
@@ -340,75 +410,10 @@
 		.portfolio .altH1 {
 			border-bottom: none;
 		}
+		#faucet {
+			display: inline-block;
+			margin-top: 10vh;
+		}
 	}
-
-	#faucet {
-		margin-top: 10vh;
-	}
-	input[type=checkbox]:checked + .box:after {
-		transform: translate(45%) scale3d(1, 8, 1);
-    width: 100%;
-	}
-	input[type=checkbox]:checked + .box .box__item {
-		transform: translateX(0px);
-  opacity: 1;
-  visibility: visible;
-  transition: all 0.5s ease-out;
-  transition-delay: calc(var(--index) * 0.1s);
-  transition-property: transform, opacity;
-
-}
-	input[type=checkbox]:checked + .box .icon {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E %3Cpath d='M437.5 386.6L306.9 256l130.6-130.6c14.1-14.1 14.1-36.8 0-50.9-14.1-14.1-36.8-14.1-50.9 0L256 205.1 125.4 74.5c-14.1-14.1-36.8-14.1-50.9 0-14.1 14.1-14.1 36.8 0 50.9L205.1 256 74.5 386.6c-14.1 14.1-14.1 36.8 0 50.9 14.1 14.1 36.8 14.1 50.9 0L256 306.9l130.6 130.6c14.1 14.1 36.8 14.1 50.9 0 14-14.1 14-36.9 0-50.9z'/%3E %3C/svg%3E ");
-}
-
-	.box {
-	margin-top: 1.5rem;
-  padding-top: 1rem;
-  position: relative;
-}
-	.box:after {
-  content: "";
-  width: 40px;
-  height: 35px;
-  position: absolute;
-  right: 45%;
-  top: 50%;
-  transform-origin: 100% 50%;
-  transform: translateY(135%);
-  transition: transform 0.3s var(--easing);
-  z-index: -1;
-}
-	.box__item {
-  visibility: hidden;
-  transform: translateX(20px);
-  opacity: 0;
-  transition: opacity 0.2s var(--easing-2) 0;
-}
-
-	.toggle {
-  display: block;
-  position: absolute;
-  right: 40%;
-  top: 50%;
-  transform: translateY(-150%);
-}
-	.toggle__checkbox {
-  display: none;
-}
-
-	.icon {
-  cursor: pointer;
-  display: block;
-  width: 50px;
-  height: 50px;
-  background: no-repeat center/40%;
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-clock'%3E %3Ccircle cx='12' cy='12' r='10'/%3E %3Cpath d='M12 6v6l4 2'/%3E %3C/svg%3E ");
-}
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
 
 </style>
