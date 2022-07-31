@@ -175,10 +175,10 @@
 
 				<div class="card">
 					<a href="https://itahandexchange.on.fleek.co/" target="none" >
+						<h2>Noah's Crypto Exchange</h2>
 					<img src="https://i.postimg.cc/Y0WLJ2kZ/Screen-Shot-2022-07-23-at-3-58-21-PM.png" alt="screenshot" class="exchange">
-					<br>
-						Cryptocurrency Exchange
 					</a>
+						<h3>I developed my own Cryptocurrency Exchange where anyone can connect their Eth wallet and deposit/withdraw tokens, list, cancel and fill orders! The tech stack I've used for this project is: React, Redux, Ethers.js, Node.js, Hardhat and Infura.</h3>
 				</div>
 			</div>
 		</div>
@@ -200,10 +200,10 @@
 
 				<div class="card">
 					<a href="https://itahandexchange.on.fleek.co/" target="none" >
+						<h2>Noah's Crypto Exchange</h2>
 					<img src="https://i.postimg.cc/Y0WLJ2kZ/Screen-Shot-2022-07-23-at-3-58-21-PM.png" alt="screenshot" class="exchange">
-					<br>
-						Casa de cambio de Criptomonedas.
-					</a>
+				</a>
+					<h3>He dessarrollado mi propia casa de cambio para Criptomonedas! Donde cualquiera puede conectar su cuenta Eth y depositar/retirar tokens, montar, cancelar y hasta llenar órdenes. La tecnología que he usado para este proyecto fue: React, Redux, Ethers.js, Node.js, Hardhat e Infura.</h3>
 				</div>
 			</div>
 		</div>
@@ -308,7 +308,7 @@
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
-		margin-top: 2rem;
+		margin: 2.5rem;
 	}
 	.exchange {
 		width: 350px;
