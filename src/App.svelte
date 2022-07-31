@@ -38,7 +38,21 @@
 					<a href={'#'} on:click|preventDefault={() => scrollToElement('#portafolio')}>Portfolio</a>
 				</li>
 				<button on:click={toggle}>Español</button>
+				<div id="faucet">
+					<h3 style="color: wheat; border-bottom: 1px dotted white" >NOAH Faucet</h3>
+					<input type="checkbox" id="toggle" class="toggle__checkbox" />
+					<aside class="box">
+						<label for="toggle" class="toggle"><i class="icon"></i></label>
+						<div class="pasteAdd">
+							<h1 style="--index:1;" class="box__item">Paste Address</h1>
+							<input style="--index:3;" class="box__item" placeholder="Kovan Address (soon)">
+						</div>
+					</aside>
+				</div>
+
+
 				{:else}
+
 				<li>
 					<a href={'#'} on:click|preventDefault={() => scrollToElement('#about')}>Introdución</a>
 				</li>
@@ -48,7 +62,9 @@
 				<li>
 					<a href={'#'} on:click|preventDefault={() => scrollToElement('#portafolio')}>Portafolio</a>
 				</li>
-				<button on:click={toggle}>English</button>
+				<button on:click={toggle}>
+					English
+				</button>
 				{/if}
 			</ul>
 		</nav>
@@ -63,6 +79,7 @@
 		English
 	</button>
 	{/if}
+
 	<section id="about">
 		<div class="intro">
 			<div class="name"><span class="altH2">Itahand</span> <span class="altH1"> Naizir</span></div>
@@ -73,12 +90,13 @@
 			<p class="introd">
 				I am experienced in leveraging agile frameworks, with a passion of Blockchain. I specialize in standards compliant smart Contracts like NFT and DeFi and Web Development with a focus on usability. My passion for blockchain comes from creating applications that deliver transparency, security and increased efficiency in finance.
 			</p>
+
 			{:else}
+
 			<p class="introd">
 				Tengo experiencia trabajando en ambientes ágiles y poseo una pasión innata por la tecnología blockchain. Me especializo en smart contracts que cumplen los standards y poseen un valor de utilidad, especialmente en el espacio DeFi. Mi pasion por esta tecnología nace de crear aplicaciones que aseguran transparencia, seguridad y mayor eficiencia en finanzas.
 			</p>
 			{/if}
-		</div>
 
 	</section>
 {#if !lang.spanish}
@@ -104,7 +122,9 @@
 			</div>
 		</div>
 	</section>
+
 	{:else}
+
 	<section id="servicios">
 		<div class="services">
 			<h3><span class="altH2">Servicios</span></h3>
@@ -144,7 +164,9 @@
 			</div>
 		</div>
 	</section>
+
 	{:else}
+
 	<section id="portafolio">
 		<div class="portfolio">
 			<span class="altH1">Portafolio</span>
@@ -160,9 +182,14 @@
 		</div>
 	</section>
 	{/if}
-</main>
 
+
+</main>
 <style>
+	:root {
+  --easing: cubic-bezier(0.33, 1, 0.68, 1);
+  --easing-2: cubic-bezier(0.61, 1, 0.88, 1);
+	}
 	main {
 		text-align: center;
 		padding: 0;
@@ -265,9 +292,6 @@
 		border: 2px solid wheat;
 	}
 
-
-
-
 	@media (min-width: 640px) {
 		main {
 			max-width: none;
@@ -317,4 +341,74 @@
 			border-bottom: none;
 		}
 	}
+
+	#faucet {
+		margin-top: 10vh;
+	}
+	input[type=checkbox]:checked + .box:after {
+		transform: translate(45%) scale3d(1, 8, 1);
+    width: 100%;
+	}
+	input[type=checkbox]:checked + .box .box__item {
+		transform: translateX(0px);
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.5s ease-out;
+  transition-delay: calc(var(--index) * 0.1s);
+  transition-property: transform, opacity;
+
+}
+	input[type=checkbox]:checked + .box .icon {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E %3Cpath d='M437.5 386.6L306.9 256l130.6-130.6c14.1-14.1 14.1-36.8 0-50.9-14.1-14.1-36.8-14.1-50.9 0L256 205.1 125.4 74.5c-14.1-14.1-36.8-14.1-50.9 0-14.1 14.1-14.1 36.8 0 50.9L205.1 256 74.5 386.6c-14.1 14.1-14.1 36.8 0 50.9 14.1 14.1 36.8 14.1 50.9 0L256 306.9l130.6 130.6c14.1 14.1 36.8 14.1 50.9 0 14-14.1 14-36.9 0-50.9z'/%3E %3C/svg%3E ");
+}
+
+	.box {
+	margin-top: 1.5rem;
+  padding-top: 1rem;
+  position: relative;
+}
+	.box:after {
+  content: "";
+  width: 40px;
+  height: 35px;
+  position: absolute;
+  right: 45%;
+  top: 50%;
+  transform-origin: 100% 50%;
+  transform: translateY(135%);
+  transition: transform 0.3s var(--easing);
+  z-index: -1;
+}
+	.box__item {
+  visibility: hidden;
+  transform: translateX(20px);
+  opacity: 0;
+  transition: opacity 0.2s var(--easing-2) 0;
+}
+
+	.toggle {
+  display: block;
+  position: absolute;
+  right: 40%;
+  top: 50%;
+  transform: translateY(-150%);
+}
+	.toggle__checkbox {
+  display: none;
+}
+
+	.icon {
+  cursor: pointer;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: no-repeat center/40%;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-clock'%3E %3Ccircle cx='12' cy='12' r='10'/%3E %3Cpath d='M12 6v6l4 2'/%3E %3C/svg%3E ");
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 </style>
