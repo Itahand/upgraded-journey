@@ -161,6 +161,13 @@
 						Cryptocurrency Exchange
 					</a>
 				</div>
+				<div class="card">
+					<a href="https://charitytoken.bio/" target="none" >
+					<img src="https://i.postimg.cc/L584Ynfq/Screen-Shot-2022-07-31-at-12-42-32-PM.png" alt="screenshot" class="exchange">
+					<br>
+						Charity Token landing page
+					</a>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -176,6 +183,13 @@
 					<img src="https://i.postimg.cc/Y0WLJ2kZ/Screen-Shot-2022-07-23-at-3-58-21-PM.png" alt="screenshot" class="exchange">
 					<br>
 						Casa de cambio de Criptomonedas.
+					</a>
+				</div>
+				<div class="card">
+					<a href="https://charitytoken.bio/" target="none" >
+					<img src="https://i.postimg.cc/L584Ynfq/Screen-Shot-2022-07-31-at-12-42-32-PM.png" alt="screenshot" class="exchange">
+					<br>
+						Charity Token landing page
 					</a>
 				</div>
 			</div>
