@@ -118,7 +118,6 @@
 		<div class="services">
 			<h3><span class="altH2">What I can do</span></h3>
 		</div>
-		(THIS IS INCOMPLETE)
 		<div class="services2">
 			<div class="red1">
 				Package
