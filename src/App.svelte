@@ -241,6 +241,7 @@
 	#portafolio div {
 		border: 1.5px solid black;
 		height: 250px;
+		margin: 1rem 0;
 	}
 
 	/* Services Section */
@@ -290,9 +291,6 @@
 		#about > div {
 		text-align: left;
 		}
-		.introd {
-			width: 75%;
-		}
 		.services {
 			margin-bottom: 2.5rem;
 		}
@@ -301,6 +299,7 @@
 		}
 		#portafolio {
 			margin-top: 10rem;
+			justify-content: space-around;
 		}
 	}
 
