@@ -99,13 +99,13 @@
 
 			{#if !lang.spanish}
 			<p class="introd">
-				I am experienced in leveraging agile frameworks, with a passion of Blockchain. I specialize in standards compliant smart Contracts like NFT and DeFi and Web Development with a focus on usability. My passion for blockchain comes from creating applications that deliver transparency, security and increased efficiency in finance.
+				I am experienced in leveraging agile frameworks, with a passion of Blockchain. I specialize in standards compliant smart Contracts like NFT and DeFi and Web Development with a focus on usability. I can help you with Blockchain Application Development, Smart contract development, Front-end development, and Blockchain Consulting.
 			</p>
 
 			{:else}
 
 			<p class="introd">
-				Tengo experiencia trabajando en ambientes ágiles y poseo una pasión innata por la tecnología blockchain. Me especializo en smart contracts que cumplen los standards y poseen un valor de utilidad, especialmente en el espacio DeFi. Mi pasion por esta tecnología nace de crear aplicaciones que aseguran transparencia, seguridad y mayor eficiencia en finanzas.
+				Tengo experiencia trabajando en ambientes ágiles y poseo una pasión innata por la tecnología blockchain. Me especializo en smart contracts que cumplen los standards y poseen un valor de utilidad, especialmente en el espacio DeFi. Yo te puedo ayudar con desarrollo de dApps, con desarrollo de Smart Contracts, con desarrollo de Front-end más integración a Blockchain, y accesoría en Blockchain.
 			</p>
 			{/if}
 
@@ -113,10 +113,10 @@
 {#if !lang.spanish}
 	<section id="servicios">
 		<div class="services">
-			<h3><span class="altH2">Services</span></h3>
+			<h1><span class="altH1">Services</span></h1>
 		</div>
 		<div class="services">
-			<h1><span class="altH1">What I can do</span></h1>
+			<h3><span class="altH2">What I can do</span></h3>
 		</div>
 		<div class="services2">
 			<div>
@@ -416,7 +416,6 @@
 			font-size: 100px;
 		}
 		.altH1 {
-			border-bottom-color: black;
 			border-bottom-style: inset;
 		}
 		.info {
