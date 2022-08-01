@@ -78,11 +78,11 @@
 	<section id="about">
 
 		<div>
-			<div class="name"><span class="altH2">Itahand</span> <span class="altH1"> Naizir</span></div>
+			<div class="name"><span class="altH2">Itahand</span> <span> Naizir</span></div>
 			<img src="https://i.postimg.cc/Y0gQ47Lt/profile-pic.jpg" alt="profile" class="profile2">
 
 			{#if !lang.spanish}
-			<p class="introd">
+			<p>
 				I am experienced in leveraging agile frameworks, with a passion of Blockchain. I specialize in standards compliant smart Contracts like NFT and DeFi and Web Development with a focus on usability. I can help you with Blockchain Application Development, Smart contract development, Front-end development, and Blockchain Consulting.
 			</p>
 
@@ -98,7 +98,7 @@
 
 			{:else}
 
-			<p class="introd">
+			<p>
 				Tengo experiencia trabajando en ambientes ágiles y poseo una pasión innata por la tecnología blockchain. Me especializo en smart contracts que cumplen los standards y poseen un valor de utilidad, especialmente en el espacio DeFi. Yo te puedo ayudar con desarrollo de dApps, con desarrollo de Smart Contracts, con desarrollo de Front-end más integración a Blockchain, y accesoría en Blockchain.
 			</p>
 
@@ -118,72 +118,31 @@
 	{#if !lang.spanish}
 
 	<section id="portafolio">
-		<div class="portfolio">
+		<h1>My Project</h1>
+		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
+		<div>
 
-			<div class="myProject">
-				<h1 class="altH1">Portfolio</h1>
-				<div>
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia suscipit assumenda dignissimos libero, et maiores quos sequi eaque, ea laboriosam doloremque officia eos nostrum incidunt facere perspiciatis expedita in veritatis?
-				</div>
-			</div>
+		</div>
+		<div>
 
-			<div class="portFlex">
+		</div>
+		<div>
 
-				<div class="card">
-					<h3>I developed my own Cryptocurrency Exchange where anyone can connect their Eth wallet and deposit/withdraw tokens, list, cancel and fill orders! The tech stack I've used for this project is: React, Redux, Ethers.js, Node.js, Hardhat and Infura.</h3>
-					<a href="https://itahandexchange.on.fleek.co/" target="none" >
-						<h2>Noah's Crypto Exchange</h2>
-					<img src="https://i.postimg.cc/Y0WLJ2kZ/Screen-Shot-2022-07-23-at-3-58-21-PM.png" alt="screenshot" class="exchange">
-					</a>
-				</div>
-				<div class="card">
-					<h3>I developed my own Cryptocurrency Exchange where anyone can connect their Eth wallet and deposit/withdraw tokens, list, cancel and fill orders! The tech stack I've used for this project is: React, Redux, Ethers.js, Node.js, Hardhat and Infura.</h3>
-					<a href="https://itahandexchange.on.fleek.co/" target="none" >
-						<h2>Noah's Crypto Exchange</h2>
-					<img src="https://i.postimg.cc/Y0WLJ2kZ/Screen-Shot-2022-07-23-at-3-58-21-PM.png" alt="screenshot" class="exchange">
-					</a>
-				</div>
-				<div class="card">
-					<h3>I developed my own Cryptocurrency Exchange where anyone can connect their Eth wallet and deposit/withdraw tokens, list, cancel and fill orders! The tech stack I've used for this project is: React, Redux, Ethers.js, Node.js, Hardhat and Infura.</h3>
-					<a href="https://itahandexchange.on.fleek.co/" target="none" >
-						<h2>Noah's Crypto Exchange</h2>
-					<img src="https://i.postimg.cc/Y0WLJ2kZ/Screen-Shot-2022-07-23-at-3-58-21-PM.png" alt="screenshot" class="exchange">
-					</a>
-				</div>
-
-			</div>
 		</div>
 	</section>
 
 	{:else}
 
 	<section id="portafolio">
-		<div class="portfolio">
-			<span class="altH1">Portafolio</span>
-			<div class="portGrid">
-				<div class="card">
-					<a href="https://charitytoken.bio/" target="none" >
-						<h2>Charity Token</h2>
-						<img src="https://i.postimg.cc/L584Ynfq/Screen-Shot-2022-07-31-at-12-42-32-PM.png" alt="screenshot" class="exchange">
-					</a>
-				</div>
-
-				<div class="card">
-					<a href="https://itahandexchange.on.fleek.co/" target="none" >
-						<h2>Noah's Crypto Exchange</h2>
-					<img src="https://i.postimg.cc/Y0WLJ2kZ/Screen-Shot-2022-07-23-at-3-58-21-PM.png" alt="screenshot" class="exchange">
-				</a>
-					<h3>He dessarrollado mi propia casa de cambio para Criptomonedas! Donde cualquiera puede conectar su cuenta Eth y depositar/retirar tokens, montar, cancelar y hasta llenar órdenes. La tecnología que he usado para este proyecto fue: React, Redux, Ethers.js, Node.js, Hardhat e Infura.</h3>
-				</div>
-			</div>
-		</div>
+		<h1>Mi Proyecto</h1>
+		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
 	</section>
 	{/if}
 
 {#if !lang.spanish}
 	<section id="servicios">
 		<div class="services">
-			<h1><span class="altH1">Services</span></h1>
+			<h1><span>Services</span></h1>
 		</div>
 		<div class="services2">
 			<div>
@@ -212,9 +171,8 @@
 	</section>
 	{/if}
 
-
-
 </main>
+
 <style>
 	main {
 		text-align: center;
@@ -223,7 +181,7 @@
 	}
 	section {
 		height: 100vh;
-		width: 85vw;
+		width: 75vw;
 		margin: auto;
 		text-align: left;
 	}
@@ -257,6 +215,7 @@
 	}
 
 	/* Intro Section */
+
 	#about {
 		display: flex;
 		flex-direction: column;
@@ -265,18 +224,27 @@
 	#about > div {
 		text-align: center;
 	}
-	.introd {
-		width: 75%;
-	}
 	.profile, .profile2 {
 		height: 150px;
 		width: 150px;
 		border-radius: 50%;
 		border: 3px solid wheat;
 	}
-	.introd {
-		width: 100%;
+
+	/* Portfolio Section */
+
+	#portafolio {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
 	}
+	#portafolio div {
+		border: 1.5px solid black;
+		height: 250px;
+	}
+
+	/* Services Section */
+
 	.services2 {
 		display: flex;
 		flex-direction: column;
@@ -289,22 +257,6 @@
 	.services2 div div {
 		width: 75%;
 		margin: auto;
-	}
-	.portGrid {
-		margin-top: 5rem;
-	}
-	.card {
-		border: 1px solid black;
-		display: flex;
-		justify-content: center;
-		flex-direction: column;
-		margin: 2.5rem;
-	}
-	.exchange {
-		width: 350px;
-		padding: 1rem;
-		margin: 1rem auto;
-		cursor: pointer;
 	}
 	.idioma {
 		background: transparent;
@@ -349,17 +301,6 @@
 		}
 		#portafolio {
 			margin-top: 10rem;
-		}
-		.portGrid {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-around;
-		}
-		.portfolio .altH1 {
-			border-bottom: none;
-		}
-		.portExp {
-			padding: 1rem 10rem;
 		}
 	}
 
