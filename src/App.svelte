@@ -119,18 +119,48 @@
 			<h3><span class="altH2">What I can do</span></h3>
 		</div>
 		<div class="services2">
-			<div class="red1"></div>
-			<div class="red2"></div>
-			<div class="red3"></div>
-			<div class="red3"></div>
-			<div class="green1"></div>
-			<div class="green2"></div>
-			<div class="green2"></div>
-			<div class="green2"></div>
-			<div class="blue1"></div>
-			<div class="blue2"></div>
-			<div class="blue3"></div>
-			<div class="blue3"></div>
+			<div class="red1">
+				Package
+			</div>
+			<div class="red2">
+				<h1>Basic</h1>
+				<h3>SMART CONTRACT OR MINTING DAPP</h3>
+				Smart Contract + Deployment + Minting Website Note: 10% Dev Royalty T&C Apply
+			</div>
+			<div class="red3">
+				<h1>Standard</h1>
+				<h3>KICKSTARTER NFT PACK</h3>
+				Smart Contract with Custom Functionalities + Deployment + Dapp
+			</div>
+			<div class="red3">
+				<h1>Premium</h1>
+				<h3>NFT MEGA PACK.</h3>
+				Smart contract+ Website 3 4 pages with mining custom functionality
+			</div>
+			<div class="green1">
+				Delivery Time
+			</div>
+			<div class="green2">
+				3 Days
+			</div>
+			<div class="green2">
+				7 Days
+			</div>
+			<div class="green2">
+				21 Days
+			</div>
+			<div class="blue1">
+				Price
+			</div>
+			<div class="blue2">
+				<button>Select</button>
+			</div>
+			<div class="blue3">
+				<button>Select</button>
+			</div>
+			<div class="blue3">
+				<button>Select</button>
+			</div>
 		</div>
 	</section>
 
