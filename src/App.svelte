@@ -224,6 +224,23 @@
 	</section>
 	{/if}
 
+	{#if !lang.spanish}
+	<section id="contacto">
+		<h1>Contact</h1>
+		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
+		<!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/soldjinn/30min" style="min-width:320px;height:630px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly inline widget end -->
+	</section>
+
+	{:else}
+	<section id="contacto">
+		<h1>Contacto</h1>
+		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
+	</section>
+	{/if}
+
 </main>
 
 <style>
@@ -322,6 +339,8 @@
 	#servicios table {
 		margin: 5rem auto;
 	}
+
+	/* Contact */
 
 	@media (min-width: 640px) {
 		main {
