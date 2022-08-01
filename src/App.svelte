@@ -119,18 +119,18 @@
 			<h3><span class="altH2">What I can do</span></h3>
 		</div>
 		<div class="services2">
-			<div class="red1"></div>
-			<div class="red2"></div>
-			<div class="red3"></div>
-			<div class="red3"></div>
-			<div class="green1"></div>
-			<div class="green2"></div>
-			<div class="green2"></div>
-			<div class="green2"></div>
-			<div class="blue1"></div>
-			<div class="blue2"></div>
-			<div class="blue3"></div>
-			<div class="blue3"></div>
+			<div>
+					<h2>BLOCKCHAIN</h2>
+					<div>
+						I design, develop and integrate Smart Contracts, token deployment and NFTs functionalities with decentralized or commercial applications that seek to work under a safe environment.
+					</div>
+			</div>
+			<div>
+					<h2>WEB DEVELOPMENT</h2>
+					<div>
+								I am a fullstack developer proficient with Svelte, React, Angular, Node.js and databases.
+					</div>
+			</div>
 		</div>
 	</section>
 
@@ -289,27 +289,13 @@
 		width: 100%;
 	}
 	.services2 {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		grid-template-rows: 250px 250px 250px 250px;
-		grid-gap: 5px;
-		max-width: 960px;
-		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 		width: 100%;
 	}
 	.services2 div {
-		border: 3px solid;
-		min-height: 250px;
-	}
-	.red {
-		background-color: #ED1C24;
-		grid-row: 1 / 3
-	}
-	.green {
-		background-color: #B5E61D;
-	}
-	.blue {
-		background-color: #99D9EA
+		width: 100%;
 	}
 	.services2 div div {
 		width: 75%;
