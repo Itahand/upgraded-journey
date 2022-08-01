@@ -118,6 +118,7 @@
 	{#if !lang.spanish}
 
 	<section id="portafolio">
+
 		<h1>My Project</h1>
 		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
 		<div>
@@ -136,38 +137,90 @@
 	<section id="portafolio">
 		<h1>Mi Proyecto</h1>
 		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
+		<div>
+
+		</div>
+		<div>
+
+		</div>
+		<div>
+
+		</div>
 	</section>
 	{/if}
 
 {#if !lang.spanish}
 	<section id="servicios">
-		<div class="services">
-			<h1><span>Services</span></h1>
-		</div>
-		<div class="services2">
-			<div>
+		<h1>Services</h1>
+		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
+		<table style="width:100%">
+			<tr>
+				<th>Package</th>
 
-			</div>
-			<div>
-
-			</div>
-		</div>
+				<th>Basic Website
+					<br>
+					<ul>
+						<li>NFT Mint Engine</li>
+						<li>NFT Mint Function</li>
+						<li>Responvsive 1 page website</li>
+					</ul>
+				</th>
+				<th>Standard Website
+					<br>
+					<ul>
+						<li>Basic included</li>
+						<li>Artwork and Metadata generation<br> from layer images you provide</li>
+					</ul>
+				</th>
+				<th>Premium Website
+					<br>
+					<ul>
+						<li>Standard included</li>
+						<li>Custom requests</li>
+					</ul>
+				</th>
+			</tr>
+			<tr>
+				<td>Revisions</td>
+				<td>2</td>
+				<td>5</td>
+				<td>Unlimited</td>
+			</tr>
+			<tr>
+				<td>Delivery Time</td>
+				<td>
+					7<br>8
+				</td>
+				<td>
+					7<br>9
+				</td>
+				<td>
+					7<br>10
+				</td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td>
+					$300<br>
+					<button>Select</button>
+				</td>
+				<td>
+					$350<br>
+					<button>Select</button>
+				</td>
+				<td>
+					$400<br>
+					<button>Select</button>
+				</td>
+			</tr>
+		</table>
 	</section>
 
 	{:else}
 
 	<section id="servicios">
-		<div class="services">
-			<h3><span class="altH2">Servicios</span></h3>
-		</div>
-		<div class="services2">
-			<div>
-
-			</div>
-			<div>
-
-			</div>
-		</div>
+		<h1>Servicios</h1>
+		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
 	</section>
 	{/if}
 
@@ -184,6 +237,18 @@
 		width: 75vw;
 		margin: auto;
 		text-align: left;
+	}
+	*,
+	*:before,
+	*:after
+	{
+		box-sizing: border-box;
+	}
+	.idioma {
+		background: transparent;
+		transition: ease-in-out 200ms;
+		border-radius: 15%;
+		border: 2px solid wheat;
 	}
 	.header {
 		display: none;
@@ -246,31 +311,18 @@
 
 	/* Services Section */
 
-	.services2 {
+	table, th, td {
+  border:1px solid black;
+	text-align: center;
+	}
+	#servicios {
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
-		width: 100%;
 	}
-	.services2 div {
-		width: 100%;
+	#servicios table {
+		margin: 5rem auto;
 	}
-	.services2 div div {
-		width: 75%;
-		margin: auto;
-	}
-	.idioma {
-		background: transparent;
-		transition: ease-in-out 200ms;
-		border-radius: 15%;
-		border: 2px solid wheat;
-	}
-	*,
-	*:before,
-	*:after
-	{
-		box-sizing: border-box;
-	}
+
 	@media (min-width: 640px) {
 		main {
 			max-width: none;
@@ -290,12 +342,6 @@
 		}
 		#about > div {
 		text-align: left;
-		}
-		.services {
-			margin-bottom: 2.5rem;
-		}
-		.services2 {
-			flex-direction: row;
 		}
 		#portafolio {
 			margin-top: 10rem;
