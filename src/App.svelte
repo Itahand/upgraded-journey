@@ -1,5 +1,6 @@
 <script>
-
+	import Modal from './Modal.svelte';
+	let showModal = false;
 	const scrollToElement = (selector) => {
 	const elemento = document.querySelector(selector);
 	if (!elemento) return;
@@ -35,11 +36,12 @@
 					<a href={'#'} on:click|preventDefault={() => scrollToElement('#portafolio')}>My Project</a>
 				</li>
 				<li>
-					<a href={'#'} on:click|preventDefault={() => scrollToElement('#servicios')}>Services</a>
-				</li>
-				<li>
 					<a href={'#'} on:click|preventDefault={() => scrollToElement('#portafolio')}>Contact</a>
 				</li>
+				<button on:click="{() => showModal = true}" id="modal">
+					show modal
+				</button>
+				<br>
 				<button on:click={toggle}>Español</button>
 
 
@@ -80,6 +82,7 @@
 		<div>
 			<div class="name"><span class="altH2">Itahand</span> <span> Naizir</span></div>
 			<img src="https://i.postimg.cc/Y0gQ47Lt/profile-pic.jpg" alt="profile" class="profile2">
+
 
 			{#if !lang.spanish}
 			<p>
@@ -153,6 +156,7 @@
 	<section id="servicios">
 		<h1>Services</h1>
 		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
+
 		<table style="width:100%">
 			<tr>
 				<th>Package</th>
@@ -214,6 +218,7 @@
 				</td>
 			</tr>
 		</table>
+
 	</section>
 
 	{:else}
@@ -240,6 +245,79 @@
 		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
 	</section>
 	{/if}
+
+
+
+	{#if showModal}
+		<Modal on:close="{() => showModal = false}">
+			<h2 slot="header">
+				modal
+			</h2>
+
+			<table style="width:100%">
+				<tr>
+					<th>Package</th>
+
+					<th>Basic Website
+						<br>
+						<ul>
+							<li>NFT Mint Engine</li>
+							<li>NFT Mint Function</li>
+							<li>Responvsive 1 page website</li>
+						</ul>
+					</th>
+					<th>Standard Website
+						<br>
+						<ul>
+							<li>Basic included</li>
+							<li>Artwork and Metadata generation<br> from layer images you provide</li>
+						</ul>
+					</th>
+					<th>Premium Website
+						<br>
+						<ul>
+							<li>Standard included</li>
+							<li>Custom requests</li>
+						</ul>
+					</th>
+				</tr>
+				<tr>
+					<td>Revisions</td>
+					<td>2</td>
+					<td>5</td>
+					<td>Unlimited</td>
+				</tr>
+				<tr>
+					<td>Delivery Time</td>
+					<td>
+						7<br>8
+					</td>
+					<td>
+						7<br>9
+					</td>
+					<td>
+						7<br>10
+					</td>
+				</tr>
+				<tr>
+					<td>Total</td>
+					<td>
+						$300<br>
+						<button>Select</button>
+					</td>
+					<td>
+						$350<br>
+						<button>Select</button>
+					</td>
+					<td>
+						$400<br>
+						<button>Select</button>
+					</td>
+				</tr>
+			</table>
+
+		</Modal>
+		{/if}
 
 </main>
 
