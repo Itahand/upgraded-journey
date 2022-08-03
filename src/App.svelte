@@ -1,20 +1,108 @@
 <script>
+
+	import Token from '../Artifact/Token.json';
 	import Modal from './Modal.svelte';
+	import { ethers } from 'ethers';
 	let showModal = false;
+	let lang = { spanish: false };
+
+	// Send tokens parameters
+	window.ethersProvider = new ethers.providers.InfuraProvider("kovan")
+	let send_token_amount = "100"
+	let to_address = "0x9d1cfAcac57c85fa93f3422fb765E512692C0a99"
+	let send_address = "0xb1422065e2C20CC7D2Bd53CCA2D54bd18CbA30b0"
+	let gas_limit = "0x100000"
+	let contract_address = "0x878129F7dCEA0F728B6A37F87671702B280f4FAa"
+
+	// Send token functionality
+	function send_token(
+  contract_address,
+  send_token_amount,
+  to_address,
+  send_account,
+  private_key
+	) {
+  let wallet = new ethers.Wallet(private_key)
+  let walletSigner = wallet.connect(window.ethersProvider)
+
+  window.ethersProvider.getGasPrice().then((currentGasPrice) => {
+    let gas_price = ethers.utils.hexlify(parseInt(currentGasPrice))
+    console.log(`gas_price: ${gas_price}`)
+
+    if (contract_address) {
+      // general token send
+      let contract = new ethers.Contract(
+        contract_address,
+        Token.abi,
+        walletSigner
+      )
+
+      // How many tokens?
+      let numberOfTokens = ethers.utils.parseUnits(send_token_amount, 18)
+      console.log(`numberOfTokens: ${numberOfTokens}`)
+
+      // Send tokens
+      contract.transfer(to_address, numberOfTokens).then((transferResult) => {
+        console.dir(transferResult)
+        alert("sent token")
+      })
+    } // ether send
+    else {
+      const tx = {
+        from: send_account,
+        to: to_address,
+        value: ethers.utils.parseEther(send_token_amount),
+        nonce: window.ethersProvider.getTransactionCount(
+          send_account,
+          "latest"
+        ),
+        gasLimit: ethers.utils.hexlify(gas_limit), // 100000
+        gasPrice: gas_price,
+      }
+      console.dir(tx)
+      try {
+        walletSigner.sendTransaction(tx).then((transaction) => {
+          console.dir(transaction)
+          alert("Send finished!")
+        })
+      } catch (error) {
+        alert("failed to send!!")
+      }
+    }
+  })
+}
+
+
+	// Connect MetaMask and send tokens
+	async function getSigner() {
+		let providerz = new ethers.providers.Web3Provider(window.ethereum)
+		// MetaMask requires requesting permission to connect users accounts
+		await providerz.send("eth_requestAccounts", []);
+
+		send_token(
+			contract_address,
+			send_token_amount,
+			to_address,
+			send_address,
+			private_key
+			)
+
+}
+
+
+	// Scroll to Section
 	const scrollToElement = (selector) => {
 	const elemento = document.querySelector(selector);
 	if (!elemento) return;
-
 	let posicion = elemento.getBoundingClientRect().top;
 	let offset = posicion + window.pageYOffset;
-
 	window.scrollTo({
 		top: offset,
 		behavior: 'smooth',
 	});
 	};
 
-	let lang = { spanish: false };
+	// Change language
 	function toggle() {
 		lang.spanish = !lang.spanish;
 	}
@@ -39,7 +127,7 @@
 					<a href={'#'} on:click|preventDefault={() => scrollToElement('#portafolio')}>Contact</a>
 				</li>
 				<button on:click="{() => showModal = true}" id="modal">
-					show modal
+					Services
 				</button>
 				<br>
 				<button on:click={toggle}>Español</button>
@@ -54,11 +142,12 @@
 					<a href={'#'} on:click|preventDefault={() => scrollToElement('#portafolio')}>My Proyecto</a>
 				</li>
 				<li>
-					<a href={'#'} on:click|preventDefault={() => scrollToElement('#servicios')}>Servicios</a>
-				</li>
-				<li>
 					<a href={'#'} on:click|preventDefault={() => scrollToElement('#portafolio')}>Contactar</a>
 				</li>
+				<button on:click="{() => showModal = true}" id="modal">
+					Servicios
+				</button>
+				<br>
 				<button on:click={toggle}>
 					English
 				</button>
@@ -95,7 +184,7 @@
 				Claim your free tokens and enjoy now!
 			</div>
 
-			<button>
+			<button on:click={getSigner}>
 				Free NOAH token
 			</button>
 
@@ -152,83 +241,6 @@
 	</section>
 	{/if}
 
-{#if !lang.spanish}
-	<section id="servicios">
-		<h1>Services</h1>
-		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
-
-		<table style="width:100%">
-			<tr>
-				<th>Package</th>
-
-				<th>Basic Website
-					<br>
-					<ul>
-						<li>NFT Mint Engine</li>
-						<li>NFT Mint Function</li>
-						<li>Responvsive 1 page website</li>
-					</ul>
-				</th>
-				<th>Standard Website
-					<br>
-					<ul>
-						<li>Basic included</li>
-						<li>Artwork and Metadata generation<br> from layer images you provide</li>
-					</ul>
-				</th>
-				<th>Premium Website
-					<br>
-					<ul>
-						<li>Standard included</li>
-						<li>Custom requests</li>
-					</ul>
-				</th>
-			</tr>
-			<tr>
-				<td>Revisions</td>
-				<td>2</td>
-				<td>5</td>
-				<td>Unlimited</td>
-			</tr>
-			<tr>
-				<td>Delivery Time</td>
-				<td>
-					7<br>8
-				</td>
-				<td>
-					7<br>9
-				</td>
-				<td>
-					7<br>10
-				</td>
-			</tr>
-			<tr>
-				<td>Total</td>
-				<td>
-					$300<br>
-					<button>Select</button>
-				</td>
-				<td>
-					$350<br>
-					<button>Select</button>
-				</td>
-				<td>
-					$400<br>
-					<button>Select</button>
-				</td>
-			</tr>
-		</table>
-
-	</section>
-
-	{:else}
-
-	<section id="servicios">
-		<h1>Servicios</h1>
-		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
-	</section>
-	{/if}
-
 	{#if !lang.spanish}
 	<section id="contacto">
 		<h1>Contact</h1>
@@ -251,7 +263,7 @@
 	{#if showModal}
 		<Modal on:close="{() => showModal = false}">
 			<h2 slot="header">
-				modal
+				Services
 			</h2>
 
 			<table style="width:100%">
