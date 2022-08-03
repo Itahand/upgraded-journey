@@ -6,14 +6,13 @@
 	let lang = { spanish: false };
 
 	// Send tokens parameters
-	window.ethersProvider = new ethers.providers.InfuraProvider("kovan")
 	let send_token_amount = "100"
 	let to_address = "0x9d1cfAcac57c85fa93f3422fb765E512692C0a99"
 	let send_address = "0xb1422065e2C20CC7D2Bd53CCA2D54bd18CbA30b0"
 	let gas_limit = "0x100000"
 	let contract_address = "0x878129F7dCEA0F728B6A37F87671702B280f4FAa"
 
-	// Send token functionality
+	/*/ Send token functionality
 	function send_token(
   contract_address,
   send_token_amount,
@@ -71,20 +70,12 @@
   })
 }
 
-
+*/
 	// Connect MetaMask and send tokens
 	async function getSigner() {
 		let providerz = new ethers.providers.Web3Provider(window.ethereum)
 		// MetaMask requires requesting permission to connect users accounts
 		await providerz.send("eth_requestAccounts", []);
-
-		send_token(
-			contract_address,
-			send_token_amount,
-			to_address,
-			send_address,
-			private_key
-			)
 
 }
 
