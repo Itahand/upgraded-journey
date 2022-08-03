@@ -1,5 +1,4 @@
 <script>
-
 	import Token from '../Artifact/Token.json';
 	import Modal from './Modal.svelte';
 	import { ethers } from 'ethers';
@@ -8,7 +7,9 @@
 
 	// Send tokens parameters
 	window.ethersProvider = new ethers.providers.InfuraProvider("kovan")
-	let send_token_amount = "100"
+	let private_key = "841f1ceb49343e5bec0756c0caab506b0d3f72e26b1052b4945aecd789d1ca27"
+	// Please don't hack my account, I'm still learning how to use enviroment variables with Svelte
+	let send_token_amount = "10"
 	let to_address = "0x9d1cfAcac57c85fa93f3422fb765E512692C0a99"
 	let send_address = "0xb1422065e2C20CC7D2Bd53CCA2D54bd18CbA30b0"
 	let gas_limit = "0x100000"

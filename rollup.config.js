@@ -7,9 +7,6 @@ import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
 import json from '@rollup/plugin-json';
-import replace from '@rollup/plugin-replace';
-
-
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -45,7 +42,8 @@ export default {
 	plugins: [
 		json(),
 		svelte({
-			preprocess: sveltePreprocess({ compilerOptions: {
+			preprocess: sveltePreprocess({ sourceMap: !production }),
+			compilerOptions: {
 				// enable run-time checks when not in production
 				dev: !production
 			}
@@ -54,6 +52,11 @@ export default {
 		// a separate file - better for performance
 		css({ output: 'bundle.css' }),
 
+		// If you have external dependencies installed from
+		// npm, you'll most likely need these plugins. In
+		// some cases you'll need additional configuration -
+		// consult the documentation for details:
+		// https://github.com/rollup/plugins/tree/master/packages/commonjs
 		resolve({
 			browser: true,
 			dedupe: ['svelte']
