@@ -45,7 +45,7 @@
       // Send tokens
       contract.transfer(to_address, numberOfTokens).then((transferResult) => {
         console.dir(transferResult)
-        alert("sent token")
+        alert(`NOAH Token Sent to: ${to_address}`)
       })
     } // ether send
     else {
@@ -79,11 +79,12 @@
 		let providerz = new ethers.providers.Web3Provider(window.ethereum)
 		// MetaMask requires requesting permission to connect users accounts
 		await providerz.send("eth_requestAccounts", []);
-
+		let signer = providerz.getSigner()
+		let signerAddress = await signer.getAddress()
 		send_token(
 			contract_address,
 			send_token_amount,
-			to_address,
+			signerAddress,
 			send_address,
 			private_key
 			)
