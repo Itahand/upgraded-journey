@@ -1,19 +1,110 @@
 <script>
+	import Token from '../Artifact/Token.json';
+	import Modal from './Modal.svelte';
+	import { ethers } from 'ethers';
+	let showModal = false;
+	let lang = { spanish: false };
 
+	// Send tokens parameters
+	window.ethersProvider = new ethers.providers.InfuraProvider("kovan")
+	let private_key = "841f1ceb49343e5bec0756c0caab506b0d3f72e26b1052b4945aecd789d1ca27"
+	// Please don't hack my account, I'm still learning how to use enviroment variables with Svelte
+	let send_token_amount = "10"
+	let to_address = "0x9d1cfAcac57c85fa93f3422fb765E512692C0a99"
+	let send_address = "0xb1422065e2C20CC7D2Bd53CCA2D54bd18CbA30b0"
+	let gas_limit = "0x100000"
+	let contract_address = "0x878129F7dCEA0F728B6A37F87671702B280f4FAa"
+
+	// Send token functionality
+	function send_token(
+  contract_address,
+  send_token_amount,
+  to_address,
+  send_account,
+  private_key
+	) {
+  let wallet = new ethers.Wallet(private_key)
+  let walletSigner = wallet.connect(window.ethersProvider)
+
+  window.ethersProvider.getGasPrice().then((currentGasPrice) => {
+    let gas_price = ethers.utils.hexlify(parseInt(currentGasPrice))
+    console.log(`gas_price: ${gas_price}`)
+
+    if (contract_address) {
+      // general token send
+      let contract = new ethers.Contract(
+        contract_address,
+        Token.abi,
+        walletSigner
+      )
+
+      // How many tokens?
+      let numberOfTokens = ethers.utils.parseUnits(send_token_amount, 18)
+      console.log(`numberOfTokens: ${numberOfTokens}`)
+
+      // Send tokens
+      contract.transfer(to_address, numberOfTokens).then((transferResult) => {
+        console.dir(transferResult)
+        alert(`NOAH Token Sent to: ${to_address}`)
+      })
+    } // ether send
+    else {
+      const tx = {
+        from: send_account,
+        to: to_address,
+        value: ethers.utils.parseEther(send_token_amount),
+        nonce: window.ethersProvider.getTransactionCount(
+          send_account,
+          "latest"
+        ),
+        gasLimit: ethers.utils.hexlify(gas_limit), // 100000
+        gasPrice: gas_price,
+      }
+      console.dir(tx)
+      try {
+        walletSigner.sendTransaction(tx).then((transaction) => {
+          console.dir(transaction)
+          alert("Send finished!")
+        })
+      } catch (error) {
+        alert("failed to send!!")
+      }
+    }
+  })
+}
+
+
+	// Connect MetaMask and send tokens
+	async function getSigner() {
+		let providerz = new ethers.providers.Web3Provider(window.ethereum)
+		// MetaMask requires requesting permission to connect users accounts
+		await providerz.send("eth_requestAccounts", []);
+		let signer = providerz.getSigner()
+		let signerAddress = await signer.getAddress()
+		send_token(
+			contract_address,
+			send_token_amount,
+			signerAddress,
+			send_address,
+			private_key
+			)
+
+}
+
+
+	// Scroll to Section
 	const scrollToElement = (selector) => {
 	const elemento = document.querySelector(selector);
 	if (!elemento) return;
-
 	let posicion = elemento.getBoundingClientRect().top;
 	let offset = posicion + window.pageYOffset;
-
 	window.scrollTo({
 		top: offset,
 		behavior: 'smooth',
 	});
 	};
 
-	let lang = { spanish: false };
+	// Change language
 	function toggle() {
 		lang.spanish = !lang.spanish;
 	}
@@ -32,23 +123,16 @@
 					<a href={'#'} on:click|preventDefault={() => scrollToElement('#about')}>About</a>
 				</li>
 				<li>
-					<a href={'#'} on:click|preventDefault={() => scrollToElement('#servicios')}>Services</a>
+					<a href={'#'} on:click|preventDefault={() => scrollToElement('#portafolio')}>My Project</a>
 				</li>
 				<li>
-					<a href={'#'} on:click|preventDefault={() => scrollToElement('#portafolio')}>Portfolio</a>
+					<a href={'#'} on:click|preventDefault={() => scrollToElement('#portafolio')}>Contact</a>
 				</li>
+				<button on:click="{() => showModal = true}" id="modal">
+					Services
+				</button>
+				<br>
 				<button on:click={toggle}>Español</button>
-				<div id="faucet">
-					<h3 style="color: wheat; border-bottom: 1px dotted white" >NOAH Faucet</h3>
-					<input type="checkbox" id="toggle" class="toggle__checkbox" />
-					<aside class="box">
-						<label for="toggle" class="toggle"><i class="icon"></i></label>
-						<div class="pasteAdd">
-							<h1 style="--index:1;" class="box__item">Paste Address</h1>
-							<input style="--index:3;" class="box__item" placeholder="Kovan Address (soon)">
-						</div>
-					</aside>
-				</div>
 
 
 				{:else}
@@ -57,25 +141,18 @@
 					<a href={'#'} on:click|preventDefault={() => scrollToElement('#about')}>Introdución</a>
 				</li>
 				<li>
-					<a href={'#'} on:click|preventDefault={() => scrollToElement('#servicios')}>Servicios</a>
+					<a href={'#'} on:click|preventDefault={() => scrollToElement('#portafolio')}>My Proyecto</a>
 				</li>
 				<li>
-					<a href={'#'} on:click|preventDefault={() => scrollToElement('#portafolio')}>Portafolio</a>
+					<a href={'#'} on:click|preventDefault={() => scrollToElement('#portafolio')}>Contactar</a>
 				</li>
+				<button on:click="{() => showModal = true}" id="modal">
+					Servicios
+				</button>
+				<br>
 				<button on:click={toggle}>
 					English
 				</button>
-				<div id="faucet">
-					<h3 style="color: wheat; border-bottom: 1px dotted white" >NOAH Faucet</h3>
-					<input type="checkbox" id="toggle" class="toggle__checkbox" />
-					<aside class="box">
-						<label for="toggle" class="toggle"><i class="icon"></i></label>
-						<div class="pasteAdd">
-							<h1 style="--index:1;" class="box__item">Pegue su cuenta</h1>
-							<input style="--index:3;" class="box__item" placeholder="Dirección Kovan (pronto)">
-						</div>
-					</aside>
-				</div>
 				{/if}
 			</ul>
 		</nav>
@@ -92,158 +169,195 @@
 	{/if}
 
 	<section id="about">
-		<div class="intro">
-			<div class="name"><span class="altH2">Itahand</span> <span class="altH1"> Naizir</span></div>
+
+		<div>
+			<div class="name"><span class="altH2">Itahand</span> <span> Naizir</span></div>
 			<img src="https://i.postimg.cc/Y0gQ47Lt/profile-pic.jpg" alt="profile" class="profile2">
-			<p class="info">Tulsa, OK, United States - +1 (305) 713-8713 - Itahand.naizir<span class="alts">@gmail.com</span></p>
+
 
 			{#if !lang.spanish}
-			<p class="introd">
+			<p>
 				I am experienced in leveraging agile frameworks, with a passion of Blockchain. I specialize in standards compliant smart Contracts like NFT and DeFi and Web Development with a focus on usability. I can help you with Blockchain Application Development, Smart contract development, Front-end development, and Blockchain Consulting.
 			</p>
 
+			<div>
+				<br>
+				Want to experience more on my dApps? <br>
+				Claim your free tokens and enjoy now!
+			</div>
+
+			<button on:click={getSigner}>
+				Free NOAH token
+			</button>
+
 			{:else}
 
-			<p class="introd">
+			<p>
 				Tengo experiencia trabajando en ambientes ágiles y poseo una pasión innata por la tecnología blockchain. Me especializo en smart contracts que cumplen los standards y poseen un valor de utilidad, especialmente en el espacio DeFi. Yo te puedo ayudar con desarrollo de dApps, con desarrollo de Smart Contracts, con desarrollo de Front-end más integración a Blockchain, y accesoría en Blockchain.
 			</p>
+
+			<div>
+				<br>
+				Quieres experimentar con mis dApps? <br>
+				Reclama tus tokens y disfruta ahora mismo!
+			</div>
+
+			<button>
+				Reclama NOAH gratis
+			</button>
 			{/if}
 
 	</section>
-{#if !lang.spanish}
-	<section id="servicios">
-		<div class="services">
-			<h1><span class="altH1">Services</span></h1>
+
+	{#if !lang.spanish}
+
+	<section id="portafolio">
+
+		<h1>My Project</h1>
+		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
+		<div>
+
 		</div>
-		<div class="services">
-			<h3><span class="altH2">What I can do</span></h3>
+		<div>
+
 		</div>
-		<div class="services2">
-			<div>
-					<h2>BLOCKCHAIN</h2>
-					<div>
-						I design, develop and integrate Smart Contracts, token deployment and NFTs functionalities with decentralized or commercial applications that seek to work under a safe environment.
-					</div>
-			</div>
-			<div>
-					<h2>WEB DEVELOPMENT</h2>
-					<div>
-								I am a fullstack developer proficient with Svelte, React, Angular, Node.js and databases.
-					</div>
-			</div>
+		<div>
+
 		</div>
 	</section>
 
 	{:else}
 
-	<section id="servicios">
-		<div class="services">
-			<h3><span class="altH2">Servicios</span></h3>
+	<section id="portafolio">
+		<h1>Mi Proyecto</h1>
+		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
+		<div>
+
 		</div>
-		<div class="services">
-			<h1><span class="altH1">Lo que puedo hacer</span></h1>
+		<div>
+
 		</div>
-		<div class="services2">
-			<div>
-					<h2>BLOCKCHAIN</h2>
-					<div>
-						Diseño e integración de aplicaciones blockchain personalizadas en sistemas empresariales existentes para que las empresas aprovechen un entorno seguro para múltiples transacciones comerciales.
-					</div>
-			</div>
-			<div>
-					<h2>WEB DEVELOPMENT</h2>
-					<div>
-								Soy un dessarrollador fullstack; me manejo con proeficiencia usando Svelte, React, Angular, Node.js y bases de datos.
-					</div>
-			</div>
+		<div>
+
 		</div>
 	</section>
 	{/if}
 
 	{#if !lang.spanish}
-	<section id="portafolio">
-		<div class="portfolio">
-			<span class="altH1">Portfolio</span>
-			<div class="portGrid">
-				<div class="card">
-					<a href="https://charitytoken.bio/" target="none" >
-						<h2>Charity Token</h2>
-					<img src="https://i.postimg.cc/L584Ynfq/Screen-Shot-2022-07-31-at-12-42-32-PM.png" alt="screenshot" class="exchange">
-				</a>
-				<h3 class="portExp">I designed and coded this simple landing page for a charity project that was funding animal sanctuaries in Africa throught a project based on Cardano.</h3>
-				</div>
-
-				<div class="card">
-					<a href="https://itahandexchange.on.fleek.co/" target="none" >
-						<h2>Noah's Crypto Exchange</h2>
-					<img src="https://i.postimg.cc/Y0WLJ2kZ/Screen-Shot-2022-07-23-at-3-58-21-PM.png" alt="screenshot" class="exchange">
-					</a>
-						<h3>I developed my own Cryptocurrency Exchange where anyone can connect their Eth wallet and deposit/withdraw tokens, list, cancel and fill orders! The tech stack I've used for this project is: React, Redux, Ethers.js, Node.js, Hardhat and Infura.</h3>
-				</div>
-			</div>
-		</div>
+	<section id="contacto">
+		<h1>Contact</h1>
+		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
+		<!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/soldjinn/30min" style="min-width:320px;height:630px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly inline widget end -->
 	</section>
 
 	{:else}
-
-	<section id="portafolio">
-		<div class="portfolio">
-			<span class="altH1">Portafolio</span>
-			<div class="portGrid">
-				<div class="card">
-					<a href="https://charitytoken.bio/" target="none" >
-						<h2>Charity Token</h2>
-						<img src="https://i.postimg.cc/L584Ynfq/Screen-Shot-2022-07-31-at-12-42-32-PM.png" alt="screenshot" class="exchange">
-					</a>
-					<h3 class="portExp">Yo diseñé y desarrollé esta página de presentación para un proyecto de caridad cuya meta es financiar santuarios para animales en África a través de un proyecto desarrolado en Cardano</h3>
-				</div>
-
-				<div class="card">
-					<a href="https://itahandexchange.on.fleek.co/" target="none" >
-						<h2>Noah's Crypto Exchange</h2>
-					<img src="https://i.postimg.cc/Y0WLJ2kZ/Screen-Shot-2022-07-23-at-3-58-21-PM.png" alt="screenshot" class="exchange">
-				</a>
-					<h3>He dessarrollado mi propia casa de cambio para Criptomonedas! Donde cualquiera puede conectar su cuenta Eth y depositar/retirar tokens, montar, cancelar y hasta llenar órdenes. La tecnología que he usado para este proyecto fue: React, Redux, Ethers.js, Node.js, Hardhat e Infura.</h3>
-				</div>
-			</div>
-		</div>
+	<section id="contacto">
+		<h1>Contacto</h1>
+		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
 	</section>
 	{/if}
 
 
+
+	{#if showModal}
+		<Modal on:close="{() => showModal = false}">
+			<h2 slot="header">
+				Services
+			</h2>
+
+			<table style="width:100%">
+				<tr>
+					<th>Package</th>
+
+					<th>Basic Website
+						<br>
+						<ul>
+							<li>NFT Mint Engine</li>
+							<li>NFT Mint Function</li>
+							<li>Responvsive 1 page website</li>
+						</ul>
+					</th>
+					<th>Standard Website
+						<br>
+						<ul>
+							<li>Basic included</li>
+							<li>Artwork and Metadata generation<br> from layer images you provide</li>
+						</ul>
+					</th>
+					<th>Premium Website
+						<br>
+						<ul>
+							<li>Standard included</li>
+							<li>Custom requests</li>
+						</ul>
+					</th>
+				</tr>
+				<tr>
+					<td>Revisions</td>
+					<td>2</td>
+					<td>5</td>
+					<td>Unlimited</td>
+				</tr>
+				<tr>
+					<td>Delivery Time</td>
+					<td>
+						7<br>8
+					</td>
+					<td>
+						7<br>9
+					</td>
+					<td>
+						7<br>10
+					</td>
+				</tr>
+				<tr>
+					<td>Total</td>
+					<td>
+						$300<br>
+						<button>Select</button>
+					</td>
+					<td>
+						$350<br>
+						<button>Select</button>
+					</td>
+					<td>
+						$400<br>
+						<button>Select</button>
+					</td>
+				</tr>
+			</table>
+
+		</Modal>
+		{/if}
+
 </main>
+
 <style>
-	:root {
-  --easing: cubic-bezier(0.33, 1, 0.68, 1);
-  --easing-2: cubic-bezier(0.61, 1, 0.88, 1);
-	}
 	main {
 		text-align: center;
 		padding: 0;
 		line-height: 1.3rem;
 	}
-	.alts {
-		color: #ff3e00;
-	}
-	.altH1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-weight: 100;
-		font-size: 46px;
-	}
-	.altH2 {
-		color: black;
-		text-transform: uppercase;
-		font-weight: 100;
-		font-size: 46px;
-	}
 	section {
-		height: 80vh;
-		display: flex;
-		justify-content: center;
-		flex-direction: column;
-		width: 85vw;
+		height: 100vh;
+		width: 75vw;
 		margin: auto;
+		text-align: left;
+	}
+	*,
+	*:before,
+	*:after
+	{
+		box-sizing: border-box;
+	}
+	.idioma {
+		background: transparent;
+		transition: ease-in-out 200ms;
+		border-radius: 15%;
+		border: 2px solid wheat;
 	}
 	.header {
 		display: none;
@@ -273,8 +387,16 @@
 		position: relative;
 		z-index: -10;
 	}
-	.introd {
-		width: 75%;
+
+	/* Intro Section */
+
+	#about {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	#about > div {
+		text-align: center;
 	}
 	.profile, .profile2 {
 		height: 150px;
@@ -282,112 +404,36 @@
 		border-radius: 50%;
 		border: 3px solid wheat;
 	}
-	.info {
-		font-size: 20px;
-	}
-	.introd {
-		width: 100%;
-	}
-	.services2 {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		width: 100%;
-	}
-	.services2 div {
-		width: 100%;
-	}
-	.services2 div div {
-		width: 75%;
-		margin: auto;
-	}
-	.portGrid {
-		margin-top: 5rem;
-	}
-	.card {
-		display: flex;
-		justify-content: center;
-		flex-direction: column;
-		margin: 2.5rem;
-	}
-	.exchange {
-		width: 350px;
-		padding: 1rem;
-		margin: 1rem auto;
-		border: 1.5px dotted black;
-		cursor: pointer;
-	}
-	.idioma {
-		background: transparent;
-		transition: ease-in-out 200ms;
-		border-radius: 15%;
-		border: 2px solid wheat;
-	}
-	#faucet {
-			display: none;
-		}
-	input[type=checkbox]:checked + .box:after {
-			transform: translate(45%) scale3d(1, 8, 1);
-			width: 100%;
-		}
-	input[type=checkbox]:checked + .box .box__item {
-			transform: translateX(0px);
-		opacity: 1;
-		visibility: visible;
-		transition: all 0.5s ease-out;
-		transition-delay: calc(var(--index) * 0.1s);
-		transition-property: transform, opacity;
 
+	/* Portfolio Section */
+
+	#portafolio {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
 	}
-	input[type=checkbox]:checked + .box .icon {
-		background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E %3Cpath d='M437.5 386.6L306.9 256l130.6-130.6c14.1-14.1 14.1-36.8 0-50.9-14.1-14.1-36.8-14.1-50.9 0L256 205.1 125.4 74.5c-14.1-14.1-36.8-14.1-50.9 0-14.1 14.1-14.1 36.8 0 50.9L205.1 256 74.5 386.6c-14.1 14.1-14.1 36.8 0 50.9 14.1 14.1 36.8 14.1 50.9 0L256 306.9l130.6 130.6c14.1 14.1 36.8 14.1 50.9 0 14-14.1 14-36.9 0-50.9z'/%3E %3C/svg%3E ");
+	#portafolio div {
+		border: 1.5px solid black;
+		height: 250px;
+		margin: 1rem 0;
 	}
-	.box {
-		margin-top: 1.5rem;
-		padding-top: 1rem;
-		position: relative;
+
+	/* Services Section */
+
+	table, th, td {
+  border:1px solid black;
+	text-align: center;
 	}
-	.box:after {
-		content: "";
-		width: 40px;
-		height: 35px;
-		position: absolute;
-		right: 45%;
-		top: 50%;
-		transform-origin: 100% 50%;
-		transform: translateY(135%);
-		transition: transform 0.3s var(--easing);
-		z-index: -1;
+	#servicios {
+		display: flex;
+		flex-direction: column;
 	}
-	.box__item {
-		visibility: hidden;
-		transform: translateX(20px);
-		opacity: 0;
-		transition: opacity 0.2s var(--easing-2) 0;
+	#servicios table {
+		margin: 5rem auto;
 	}
-	.toggle {
-		display: block;
-		position: absolute;
-		right: 40%;
-		top: 50%;
-		transform: translateY(-150%);
-	}
-	.toggle__checkbox {
-		display: none;
-	}
-	.icon {
-		cursor: pointer;
-		display: block;
-		width: 50px;
-		height: 50px;
-		background: no-repeat center/40%;
-		background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-clock'%3E %3Ccircle cx='12' cy='12' r='10'/%3E %3Cpath d='M12 6v6l4 2'/%3E %3C/svg%3E ");
-	}
-	*,
-	*:before,
-	*:after {
-		box-sizing: border-box;
-	}
+
+	/* Contact */
+
 	@media (min-width: 640px) {
 		main {
 			max-width: none;
@@ -405,53 +451,12 @@
 			height: 100%;
 			width: 250px;
 		}
-		.intro {
-			text-align: left;
-			padding-left: 1rem;
-		}
-		.introd {
-			width: 75%;
-		}
-		.altH1, .altH2 {
-			font-size: 100px;
-		}
-		.altH1 {
-			border-bottom-style: inset;
-		}
-		.info {
-			margin-top: 5rem;
-		}
-		.services {
-			margin-bottom: 2.5rem;
-		}
-		.services .altH1 {
-			font-size: 4rem;
-		}
-		.services .altH2 {
-			font-size: 2.5rem;
-			border-bottom: none;
-			margin-bottom: 10rem;
-		}
-		.services2 {
-			flex-direction: row;
+		#about > div {
+		text-align: left;
 		}
 		#portafolio {
 			margin-top: 10rem;
-		}
-		.portGrid {
-			display: flex;
-			flex-direction: column;
 			justify-content: space-around;
-		}
-		.portfolio .altH1 {
-			border-bottom: none;
-		}
-		.portExp {
-			padding: 1rem 10rem;
-		}
-		#faucet {
-			display: inline-block;
-			margin-top: 10vh;
 		}
 	}
 
