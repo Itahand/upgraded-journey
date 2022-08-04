@@ -174,8 +174,8 @@
 	<section id="about">
 
 		<div>
-			<div class="name"><span class="altH2">Itahand Naizir</span></div>
-			<img src="https://i.postimg.cc/Y0gQ47Lt/profile-pic.jpg" alt="profile" class="profile2">
+			<div class="name"><h1 class="altH2">Itahand Naizir</h1></div>
+			<img src="https://i.postimg.cc/GtKF7kn8/1659650257988.jpg" alt="profile" class="profile2">
 
 
 			{#if !lang.spanish}
@@ -444,6 +444,9 @@
 	{
 		box-sizing: border-box;
 	}
+	.altH2 {
+		color: rgb(221, 189, 214);
+	}
 	.idioma {
 		background: transparent;
 		transition: ease-in-out 200ms;
@@ -535,16 +538,15 @@
 		.profile2, .idioma {
 			display: none;
 		}
-		.altH2 {
-			font-size: 4rem;
-			color: rgb(221, 189, 214);
-		}
 		.header {
 			display: block;
 			position: fixed;
 			background: palevioletred;
 			height: 100%;
 			width: 250px;
+		}
+		.altH2 {
+			font-size: 4rem;
 		}
 		#about > div {
 		text-align: left;
