@@ -119,7 +119,7 @@
 		<nav class="navbar">
 			<ul class="list">
 				<li>
-					<img src="https://i.postimg.cc/Y0gQ47Lt/profile-pic.jpg" alt="profile" class="profile">
+					<img src="https://i.postimg.cc/GtKF7kn8/1659650257988.jpg" alt="profile" class="profile">
 				</li>
 				{#if !lang.spanish}
 				<li>
