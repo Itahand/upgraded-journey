@@ -76,19 +76,22 @@
 
 	// Connect MetaMask and send tokens
 	async function getSigner() {
+		if (!window.ethereum) {
+			alert(`Please install MetaMask on your browser.`)
+		}
 		let providerz = new ethers.providers.Web3Provider(window.ethereum)
 		// MetaMask requires requesting permission to connect users accounts
 		await providerz.send("eth_requestAccounts", []);
 		let signer = providerz.getSigner()
 		let signerAddress = await signer.getAddress()
-		send_token(
-			contract_address,
-			send_token_amount,
-			signerAddress,
-			send_address,
-			private_key
-			)
 
+			send_token(
+				contract_address,
+				send_token_amount,
+				signerAddress,
+				send_address,
+				private_key
+				)
 }
 
 
@@ -171,7 +174,7 @@
 	<section id="about">
 
 		<div>
-			<div class="name"><span class="altH2">Itahand</span> <span> Naizir</span></div>
+			<div class="name"><span class="altH2">Itahand Naizir</span></div>
 			<img src="https://i.postimg.cc/Y0gQ47Lt/profile-pic.jpg" alt="profile" class="profile2">
 
 
@@ -213,40 +216,56 @@
 
 	<section id="portafolio">
 
-		<h1>My Project</h1>
-		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
+		<h1 class="altH2">Web3 Portfolio</h1>
+		<span>
+			My web3 portfolio starts with my own cryptocurrency exchange built on the Kovan network. In it you can deposit or withdraw tokens and place, cancel or fill orders. It logs every transaction and shows the token's price changes in a dynamic candle shart. For the back-end and test units I used Hardhat with Chai and for the front-end I used React, Redux and Ethers.
+		</span>
+		<div>
+
+			<div>
+				<a href="https://itahandexchange.on.fleek.co/" target="none" >
+					<h3>Crypto Exchange</h3>
+					<img src="https://i.postimg.cc/Y0WLJ2kZ/Screen-Shot-2022-07-23-at-3-58-21-PM.png" alt="screenshot" class="exchange">
+					<a href="https://charitytoken.bio/" target="none" >
+			</div>
+
+					To use the Exchange you'll need to get NOAH from the faucet. Then deposit it in the Exchange and then you can fill orders with it. The only pair available right now is NOAH/COO. When you make a trade; you can withdraw your new tokens to visualize them in your wallet.
+		</div>
+		<span>
+			Soon I'll add a special NFT minter that you can play with using NOAH.
+		</span>
 		<div>
 
 		</div>
-		<div>
 
-		</div>
-		<div>
-
-		</div>
 	</section>
 
 	{:else}
-
 	<section id="portafolio">
-		<h1>Mi Proyecto</h1>
-		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
+		<h1 class="altH2">Mi Proyecto Web3</h1>
+		<span>Mi portafolio web3 empieza con mi propia casa de cambio de criptomonedas desarrollado en el Kovan network. Aquí puedes depositar or retirar tokens, poner, cancelar y llenar órdenes. En el front-end utilicé React, Redux e Ethers.js, para el back-end y lost tests utilicé Hardhat y Chai.</span>
+
+		<div>
+			<div>
+				<a href="https://itahandexchange.on.fleek.co/" target="none" >
+					<h3>Crypto Exchange</h3>
+					<img src="https://i.postimg.cc/Y0WLJ2kZ/Screen-Shot-2022-07-23-at-3-58-21-PM.png" alt="screenshot" class="exchange">
+					<a href="https://charitytoken.bio/" target="none" >
+			</div>
+			Para poder usar la casa de moneda necesitarás depositar NOAH en ella y luego podrás montar o llenar órdenes. Una vez completes un intercambio, podrás retirar tus monedas y visualizarlas en tu cuenta.
+		</div>
+		Pronto subiré un NFT minter especial con el que puedes jugar usando NOAH.
 		<div>
 
 		</div>
-		<div>
 
-		</div>
-		<div>
-
-		</div>
 	</section>
 	{/if}
 
 	{#if !lang.spanish}
 	<section id="contacto">
-		<h1>Contact</h1>
-		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
+		<h1 class="altH2">Contact</h1>
+		<span>Are you looking for a NFT Minting Website for your collection? You are in the right place. I will develop a NFT Minting Website for Ethereum, Polygon or the Solana Network. I'm always up to date with the research, so prior to every delivery I make sure to provide you the absolute very best. You can schedule a meeting with me and we can discuss the details of your website and smart contracts.</span>
 		<!-- Calendly inline widget begin -->
 <div class="calendly-inline-widget" data-url="https://calendly.com/soldjinn/30min" style="min-width:320px;height:630px;"></div>
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
@@ -255,14 +274,14 @@
 
 	{:else}
 	<section id="contacto">
-		<h1>Contacto</h1>
-		<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quas quo dolores voluptatibus animi harum deleniti nihil pariatur, ex sapiente molestiae officiis ipsa facere eaque blanditiis at, quae commodi Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem itaque dicta, dolore harum, exercitationem unde, voluptatem facere sequi facilis inventore quaerat pariatur. Animi debitis eaque quidem cum, reiciendis sequi nam?</span>
+		<h1 class="altH2">Contacto</h1>
+		<span>Si estás buscando crear una collección de NFTs o utilizar la Blockchain para tus propios servicios?  Estás en el lugar indicado; yo desarrollaré tu website en Ethereum, Polygon o Solana utilizando toda la tecnología y protocolos de seguridad de vanguardia. Acá puedes hacer una cita conmigo y juntos discutiremos los detalles de todo lo que necesitas.</span>
 	</section>
 	{/if}
 
 
 
-	{#if showModal}
+	{#if showModal && !lang.spanish}
 		<Modal on:close="{() => showModal = false}">
 			<h2 slot="header">
 				Services
@@ -277,7 +296,7 @@
 						<ul>
 							<li>NFT Mint Engine</li>
 							<li>NFT Mint Function</li>
-							<li>Responvsive 1 page website</li>
+							<li>Responsive 1 page website</li>
 						</ul>
 					</th>
 					<th>Standard Website
@@ -304,32 +323,104 @@
 				<tr>
 					<td>Delivery Time</td>
 					<td>
-						7<br>8
+						3 Days
 					</td>
 					<td>
-						7<br>9
+						7 Days
 					</td>
 					<td>
-						7<br>10
+						14 Days
 					</td>
 				</tr>
 				<tr>
 					<td>Total</td>
 					<td>
 						$300<br>
-						<button>Select</button>
 					</td>
 					<td>
 						$350<br>
-						<button>Select</button>
 					</td>
 					<td>
 						$400<br>
-						<button>Select</button>
 					</td>
 				</tr>
 			</table>
+			<div>  During our order, we will have to go on a video call on Zoom so we can set up the smart contract on your end so in the end you have final authority over everything not me or anyone else. (Some might ask you for private keys to your wallet -- which is a scam, I don't do that, that's why we need the call. Never give anyone your private key.)
+				<br>
+				<br>
+			Feel free to contact me before you place an order.
+			</div>
+		</Modal>
+			{:else if showModal && lang.spanish}
+		<Modal on:close="{() => showModal = false}">
+			<h2 slot="header">
+				Servicios
+			</h2>
 
+			<table style="width:100%">
+				<tr>
+					<th>Paquete</th>
+
+					<th>Website Básico
+						<br>
+						<ul>
+							<li>Motor de Minteo de NFTs</li>
+							<li>Funcionalidad de Minteo de NFTs</li>
+							<li>Website Responsivo de una página</li>
+						</ul>
+					</th>
+					<th>Website Estándar
+						<br>
+						<ul>
+							<li>Incluye el Básico</li>
+							<li>Generador de Arte y Metadata<br> de tus imagenés</li>
+						</ul>
+					</th>
+					<th>Website Premium
+						<br>
+						<ul>
+							<li>Incluye el Estándar</li>
+							<li>Solicitud Personalizada</li>
+						</ul>
+					</th>
+				</tr>
+				<tr>
+					<td>Revisiones</td>
+					<td>2</td>
+					<td>5</td>
+					<td>Ilimitadas</td>
+				</tr>
+				<tr>
+					<td>Tiempo de Entrega</td>
+					<td>
+						3 Días
+					</td>
+					<td>
+						7 Días
+					</td>
+					<td>
+						14 Días
+					</td>
+				</tr>
+				<tr>
+					<td>Total</td>
+					<td>
+						$300<br>
+					</td>
+					<td>
+						$350<br>
+					</td>
+					<td>
+						$400<br>
+					</td>
+				</tr>
+			</table>
+			<div>  Durante nuestro pedido, tendremos que realizar una videollamada en Zoom para que podamos configurar el contrato inteligente en su computadora y así, al final, usted tendrá la autoridad final sobre todo (ni yo ni nadie más). Algunos podrían pedirle claves privadas. a su billetera, lo cual es una estafa, yo no hago eso, es por eso que necesitamos la llamada. Nunca le dé a nadie su clave privada.
+				<br>
+				<br>
+				Puede contactarme con toda confianza antes de poner una orden.
+
+			</div>
 		</Modal>
 		{/if}
 
@@ -412,10 +503,20 @@
 		flex-direction: column;
 		justify-content: space-around;
 	}
-	#portafolio div {
+	#portafolio > div {
 		border: 1.5px solid black;
-		height: 250px;
+		height: 450px;
 		margin: 1rem 0;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	#portafolio img {
+		width: 250px;
+	}
+	.kovan {
+		display: inline;
 	}
 
 	/* Services Section */
@@ -423,13 +524,6 @@
 	table, th, td {
   border:1px solid black;
 	text-align: center;
-	}
-	#servicios {
-		display: flex;
-		flex-direction: column;
-	}
-	#servicios table {
-		margin: 5rem auto;
 	}
 
 	/* Contact */
@@ -443,6 +537,10 @@
 		}
 		.profile2, .idioma {
 			display: none;
+		}
+		.altH2 {
+			font-size: 4rem;
+			color: rgb(221, 189, 214);
 		}
 		.header {
 			display: block;
