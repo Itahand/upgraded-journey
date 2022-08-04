@@ -515,9 +515,6 @@
 	#portafolio img {
 		width: 250px;
 	}
-	.kovan {
-		display: inline;
-	}
 
 	/* Services Section */
 
