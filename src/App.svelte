@@ -218,7 +218,7 @@
 
 		<h1 class="altH2">Web3 Portfolio</h1>
 		<span>
-			My web3 portfolio starts with my own cryptocurrency exchange built on the Kovan network. In it you can deposit or withdraw tokens and place, cancel or fill orders. It logs every transaction and shows the token's price changes in a dynamic candle shart. For the back-end and test units I used Hardhat with Chai and for the front-end I used React, Redux and Ethers.
+			My web3 portfolio starts with my own cryptocurrency exchange built on the Kovan network. In it you can deposit or withdraw tokens and place, cancel or fill orders. It logs every transaction and shows the token's price changes in a dynamic candle shart. For the back-end and test units I used Hardhat, JavaScript with Chai and for the front-end I used React, Redux and Ethers.
 		</span>
 		<div>
 
@@ -243,7 +243,7 @@
 	{:else}
 	<section id="portafolio">
 		<h1 class="altH2">Mi Proyecto Web3</h1>
-		<span>Mi portafolio web3 empieza con mi propia casa de cambio de criptomonedas desarrollado en el Kovan network. Aquí puedes depositar or retirar tokens, poner, cancelar y llenar órdenes. En el front-end utilicé React, Redux e Ethers.js, para el back-end y lost tests utilicé Hardhat y Chai.</span>
+		<span>Mi portafolio web3 empieza con mi propia casa de cambio de criptomonedas desarrollado en el Kovan network. Aquí puedes depositar or retirar tokens, poner, cancelar y llenar órdenes. En el front-end utilicé React, Redux e Ethers.js, para el back-end y lost tests utilicé Hardhat, JavaScript y Chai.</span>
 
 		<div>
 			<div>
