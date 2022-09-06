@@ -404,11 +404,6 @@
 
 	/* Services Section */
 
-	table, th, td {
-  border:1px solid black;
-	text-align: center;
-	}
-
 	/* Contact */
 
 	@media (min-width: 640px) {
