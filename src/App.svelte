@@ -286,67 +286,8 @@
 			<h2 slot="header">
 				Services
 			</h2>
-
-			<table style="width:100%">
-				<tr>
-					<th>Package</th>
-
-					<th>Basic Website
-						<br>
-						<ul>
-							<li>NFT Mint Engine</li>
-							<li>NFT Mint Function</li>
-							<li>Responsive 1 page website</li>
-						</ul>
-					</th>
-					<th>Standard Website
-						<br>
-						<ul>
-							<li>Basic included</li>
-							<li>Artwork and Metadata generation<br> from layer images you provide</li>
-						</ul>
-					</th>
-					<th>Premium Website
-						<br>
-						<ul>
-							<li>Standard included</li>
-							<li>Custom requests</li>
-						</ul>
-					</th>
-				</tr>
-				<tr>
-					<td>Revisions</td>
-					<td>2</td>
-					<td>5</td>
-					<td>Unlimited</td>
-				</tr>
-				<tr>
-					<td>Delivery Time</td>
-					<td>
-						3 Days
-					</td>
-					<td>
-						7 Days
-					</td>
-					<td>
-						14 Days
-					</td>
-				</tr>
-				<tr>
-					<td>Total</td>
-					<td>
-						$300<br>
-					</td>
-					<td>
-						$350<br>
-					</td>
-					<td>
-						$400<br>
-					</td>
-				</tr>
-			</table>
-			<div>  During our order, we will have to go on a video call on Zoom so we can set up the smart contract on your end so in the end you have final authority over everything not me or anyone else. (Some might ask you for private keys to your wallet -- which is a scam, I don't do that, that's why we need the call. Never give anyone your private key.)
-				<br>
+			<h3>Here's a link to my crypto services: <a href="https://lnkd.in/gNG8fs47" target="none">Services</a></h3>
+			<div>  During our order, we will have to go on a video call on Zoom so we can set up the smart contract on your end so in the end you have final authority over everything not me or anyone else. (Some might ask you for private keys to your wallet -- which is a scam, I don't do that, that's why we need the call. Never give anyone your private key.)				<br>
 				<br>
 			Feel free to contact me before you place an order.
 			</div>
@@ -356,65 +297,7 @@
 			<h2 slot="header">
 				Servicios
 			</h2>
-
-			<table style="width:100%">
-				<tr>
-					<th>Paquete</th>
-
-					<th>Website Básico
-						<br>
-						<ul>
-							<li>Motor de Minteo de NFTs</li>
-							<li>Funcionalidad de Minteo de NFTs</li>
-							<li>Website Responsivo de una página</li>
-						</ul>
-					</th>
-					<th>Website Estándar
-						<br>
-						<ul>
-							<li>Incluye el Básico</li>
-							<li>Generador de Arte y Metadata<br> de tus imagenés</li>
-						</ul>
-					</th>
-					<th>Website Premium
-						<br>
-						<ul>
-							<li>Incluye el Estándar</li>
-							<li>Solicitud Personalizada</li>
-						</ul>
-					</th>
-				</tr>
-				<tr>
-					<td>Revisiones</td>
-					<td>2</td>
-					<td>5</td>
-					<td>Ilimitadas</td>
-				</tr>
-				<tr>
-					<td>Tiempo de Entrega</td>
-					<td>
-						3 Días
-					</td>
-					<td>
-						7 Días
-					</td>
-					<td>
-						14 Días
-					</td>
-				</tr>
-				<tr>
-					<td>Total</td>
-					<td>
-						$300<br>
-					</td>
-					<td>
-						$350<br>
-					</td>
-					<td>
-						$400<br>
-					</td>
-				</tr>
-			</table>
+			<h3>Aca dejo un link a mis servicios: <a href="https://lnkd.in/gNG8fs47" target="none">Servicios</a></h3>
 			<div>  Durante nuestro pedido, tendremos que realizar una videollamada en Zoom para que podamos configurar el contrato inteligente en su computadora y así, al final, usted tendrá la autoridad final sobre todo (ni yo ni nadie más). Algunos podrían pedirle claves privadas. a su billetera, lo cual es una estafa, yo no hago eso, es por eso que necesitamos la llamada. Nunca le dé a nadie su clave privada.
 				<br>
 				<br>
